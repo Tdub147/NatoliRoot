@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/ToleratorStyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/Main.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Varela Round">
+    <title>Natoli Tolerator</title>
+    <link rel="shortcut icon" href="https://dh4b13or2bqf5.cloudfront.net/uploads/2015/12/favicon.png">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../js/Tolerator.js"></script>
+    <script src="https://unpkg.com/animate-css-grid@latest"></script>
+</head>
+<body>
+    <div class="grid">
+        <h1>Natoli Tolerator</h1>
+        <div class="grid">
+            <div class=" grid-item size1of1">
+                <label class="unit size1of1" for="toleranceStyle"><h3>Tolarence Style</h3></label>
+                <select class="lastunit size1of1" id="toleranceStyle" oninput="ToleranceStyle_OnInput()">
+                    <option value="none"></option>
+                    <option value="natoliTolerance">Natoli</option>
+                    <option value="euTolerance">European</option>
+                    <option value="pmTolerance">+/-</option>
+                </select>
+            </div>
+            <p class="grid"><br/></p>
+            <h3>&nbsp;Size</h3>
+            <div class="grid-item size3of8">
+                <input type="text" id="width" placeholder="Width" disabled oninput="Calculate()">
+            </div>
+            <div class="grid-item" style="padding-top: 4px;">X</div>
+            <div class="grid-item size3of8">
+                <input type="text" id="length" placeholder="Length" disabled oninput="Calculate()">
+            </div>
+        </div>
+        <div class="grid">
+            <div id="natoliStyleDiv" class="grid-item size1of1">
+                <p></p>
+            </div>
+            <div id="euStyleDiv" class="grid-item size1of1">
+                <div class="grid-item size1of1">
+                    <h3>Upper Tip Tolerance</h3>
+                </div>
+                <div class="grid-item size1of1">
+                    <label for="eUStyleUpperTipDeviation">Deviation:</label>
+                    <select id="eUStyleUpperTipDeviation" oninput="Calculate()">
+                        <option value="0"></option>
+                        <option value="a">a</option>
+                        <option value="b">b</option>
+                        <option value="c">c</option>
+                        <option value="cd">cd</option>
+                        <option value="d">d</option>
+                        <option value="e">e</option>
+                        <option value="ef">ef</option>
+                        <option value="f">f</option>
+                        <option value="fg">fg</option>
+                        <option value="g">g</option>
+                        <option value="h">h</option>
+                        <option value="p">p</option>
+                    </select>
+                    <label for="eUStyleUpperTipGrade">Grade:</label>
+                    <select id="eUStyleUpperTipGrade" oninput="Calculate()">
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                    </select>
+                </div>
+                <div class="grid-item size1of1">
+                    <h3>Lower Tip Tolerance</h3>
+                </div>
+                <div class="grid-item size1of1">
+                    <label for="eUStyleLowerTipDeviation">Deviation:</label>
+                    <select id="eUStyleLowerTipDeviation" oninput="Calculate()">
+                        <option value="0"></option>
+                        <option value="a">a</option>
+                        <option value="b">b</option>
+                        <option value="c">c</option>
+                        <option value="cd">cd</option>
+                        <option value="d">d</option>
+                        <option value="e">e</option>
+                        <option value="ef">ef</option>
+                        <option value="f">f</option>
+                        <option value="fg">fg</option>
+                        <option value="g">g</option>
+                        <option value="h">h</option>
+                        <option value="p">p</option>
+                    </select>
+                    <label for="eUStyleLowerTipGrade">Grade:</label>
+                    <select id="eUStyleLowerTipGrade" oninput="Calculate()">
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                    </select>
+                </div>
+                <div class="grid-item size1of1">
+                    <h3>Die Tolerance</h3>
+                </div>
+                <div class="grid-item size1of1">
+                    <label for="eUStyleDieDeviation">Deviation:</label>
+                    <select id="eUStyleDieDeviation" oninput="Calculate()">
+                        <option value="0"></option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="cd">CD</option>
+                        <option value="d">D</option>
+                        <option value="e">E</option>
+                        <option value="ef">EF</option>
+                        <option value="f">F</option>
+                        <option value="fg">FG</option>
+                        <option value="g">G</option>
+                        <option value="h">H</option>
+                        <option value="p">P</option>
+                    </select>
+                    <label for="eUStyleDieGrade">Grade:</label>
+                    <select id="eUStyleDieGrade" oninput="Calculate()">
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                    </select>
+                </div>
+            </div>
+            <div id="pmStyleDiv" class="grid-item size1of1">
+                <div class="grid-item size1of1">
+                    <h3>UpperTip Tolerance</h3>
+                    <div class="grid-item size1of1">
+                        <select id="pmHighUpperTipToleranceSign" oninput="Calculate()">
+                            <option value="plus">+</option>
+                            <option selected="selected" value="minus">-</option>
+                        </select>
+                        <input id="pmHighUpperTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                    </div>
+                    <div class="grid-item size1of1">
+                        <select id="pmLowUpperTipToleranceSign" oninput="Calculate()">
+                            <option value="plus">+</option>
+                            <option selected value="minus">-</option>
+                        </select>
+                        <input id="pmLowUpperTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                    </div>
+                </div>
+                <div class="grid-item size1of1">
+                    <h3>Lower Tip Tolerance</h3>
+                    <div class="grid-item size1of1">
+                        <select id="pmHighLowerTipToleranceSign" oninput="Calculate()">
+                            <option value="plus">+</option>
+                            <option selected value="minus">-</option>
+                        </select>
+                        <input id="pmHighLowerTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                    </div>
+                    <div class="grid-item size1of1">
+                        <select id="pmLowLowerTipToleranceSign" oninput="Calculate()">
+                            <option value="plus">+</option>
+                            <option selected value="minus">-</option>
+                        </select>
+                        <input id="pmLowLowerTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                    </div>
+                </div>
+                <div class="grid-item size1of1">
+                    <h3>Die Tolerance</h3>
+                    <div class="grid-item size1of1">
+                        <select id="pmHighDieToleranceSign" oninput="Calculate()">
+                            <option value="plus">+</option>
+                            <option value="minus">-</option>
+                        </select>
+                        <input id="pmHighDieTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                    </div>
+                    <div class="grid-item size1of1">
+                        <select id="pmLowDieToleranceSign" oninput="Calculate()">
+                            <option value="plus">+</option>
+                            <option value="minus">-</option>
+                        </select>
+                        <input id="pmLowDieTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item size1of1">
+            <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
+                <div class="grid-item">
+                    Upper tolerance:
+                </div>
+                <div class="grid-item" id="upperTolerance">
+                </div>
+            </div>
+            <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
+                <div class="grid-item">
+                    Lower tolerance:
+                </div>
+                <div class="grid-item" id="lowerTolerance">
+                </div>
+            </div>
+            <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
+                <div class="grid-item">
+                    Die tolerance: &nbsp; &nbsp;
+                </div>
+                <div class="grid-item" id="dieTolerance">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

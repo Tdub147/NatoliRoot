@@ -1,0 +1,44 @@
+*
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    font-family: 'Varela Round' !important;
+    max-width: 100%;
+    background-color: #EFEFEF !important;
+}
+
+.button
+{
+    background-color: #00A7E1;
+    border: none;
+    color: #00171F;
+    margin-right: 10px;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    outline: none;
+}
+
+.button:hover
+{
+    border: 2px solid #007EA7;
+    color: #00171F;
+    background-color: #00A7E1;
+    border-radius: 5px;
+}
+
+.button:active
+{
+    border: 2px solid #007EA7;
+    color: #00171F;
+    background-color: #007EA7;
+    border-radius: 5px;
+}

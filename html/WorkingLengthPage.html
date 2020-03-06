@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Working Length</title>
+        <meta name="Description" content="Working Length"/>
+        <link rel="stylesheet" type="text/css" href="../css/WorkingLengthStyle.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/Main.css">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Varela Round">
+        <link rel="shortcut icon" href="https://dh4b13or2bqf5.cloudfront.net/uploads/2015/12/favicon.png">
+        <script type="text/javascript" src="../js/WorkingLength.js"></script>
+    </head>
+
+    <h1>Working Length Tolerance</h1>
+
+    <div class="Checkboxes">
+        <select class="selectors" id="custom-selector" style="width: 100px;height: 25px;border-radius: 5px 5px 5px 5px;margin: 0px 10px 10px 0px;outline: none;" onclick="selected()">
+            <option value="0">Standard</option>
+            <option value="1">Assembled</option>
+        </select>
+        <input type="checkbox" id="rotating" name="rotating" value="Rotating">
+        <label for="rotating">Rotating Head</label>
+
+        <div style="text-align: center;">
+            <div class="Inputs">
+                <div class="col1">
+                    <input class="inputs" id="OLInput" placeholder="Overall Length (mm)" oninput="convert('OLInput', 'OLLabel')">
+                    <input class="inputs" id="WLInput" placeholder="Working Length (mm)" oninput="convert('WLInput', 'WLLabel')">
+                    <label class="labels" id="CDMetricLabel">Cup Depth (mm)</label>
+                </div>
+
+                <div class="col2">
+                    <label class="labels" id="OLLabel">Overall Length (in)</label>
+                    <label class="labels" id="WLLabel">Working Length (in)</label>
+                    <label class="labels" id="CDLabel">Cup Depth (in)</label>
+                </div>
+
+                <div class="col3">
+                    <input type="number" class="number_spinner" id="OLtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0000" onchange="do_math()">
+                    <input type="number" class="number_spinner" id="WLtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0254" onchange="do_math()">
+                    <input type="number" class="number_spinner" id="CDtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0381" onchange="do_math()">
+                </div>
+
+                <div class="col4">
+                    <label class="tol_label">+ OL Tolerance (mm) -</label>
+                    <label class="tol_label">+ WL Tolerance (mm) -</label>
+                    <label class="tol_label">+ CD Tolerance (mm) -</label>
+                </div>
+
+                <div class="col5">
+                    <input type="number" class="number_spinner" id="OLtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0000" onchange="do_math()">
+                    <input type="number" class="number_spinner" id="WLtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0254" onchange="do_math()">
+                    <input type="number" class="number_spinner" id="CDtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0381" onchange="do_math()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <div style="display: inline-flex;padding: 20px 10px 10px 0px;">
+            <button class="button" onclick="do_math()">Calculate</button>
+            <button class="button" onclick="clear_values()">Refresh</button>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <div class="colresults">
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <div class="Results">
+            <div class="colresults0">
+                <label class="results" style="margin-right: 10px;">Overall Length Tolerance:</label>
+                <label class="results" id="OLResultLabel" style="margin-right: 10px;">Overall Length Tolerance:</label>
+            </div>
+            
+            <div class="colresults1">
+                <label class="results" style="margin-right: 10px;">Working Length Tolerance:</label>
+                <label class="results" id="WLResultLabel" style="margin-right: 10px;">Working Length Tolerance:</label>
+            </div>
+            
+            <div class="colresults2">
+                <label class="results">Cup Depth Tolerance:</label>
+                <label class="results" id="CDResultLabel">Cup Depth Tolerance:</label>
+            </div>
+        </div>
+    </div>
+    
+</html>

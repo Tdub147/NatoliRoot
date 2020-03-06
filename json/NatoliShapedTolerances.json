@@ -1,0 +1,30 @@
+{
+    "entered_by":"Tyler Williams",
+    "date":"03/05/2020",
+    "upper": {
+        "up_to_size": {
+            "1": {
+                "clearance": -0.0015
+            },
+            "2": {
+                "clearance": -0.0020
+            },
+            "100": {
+                "clearance": -0.0025
+            }
+        }
+    },
+    "lower": {
+        "up_to_size": {
+            "1": {
+                "clearance": -0.0010
+            },
+            "2": {
+                "clearance": -0.0015
+            },
+            "100": {
+                "clearance": -0.0020
+            }
+        }
+    }
+}
