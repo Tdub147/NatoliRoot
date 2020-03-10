@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/ToleratorStyle.css">
     <link rel="stylesheet" type="text/css" href="../css/Main.css">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Varela Round">
+          href="../fonts/Valera-Round.css">
     <title>Natoli Tolerator</title>
     <link rel="shortcut icon" href="https://dh4b13or2bqf5.cloudfront.net/uploads/2015/12/favicon.png">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <script type="text/javascript" src="../js/Tolerator.js"></script>
     <script src="https://unpkg.com/animate-css-grid@latest"></script>
+    <script src="https://unpkg.com/cosha"></script>
+    <script src="https://unpkg.com/dom-to-image"></script>
+    <script type="text/javascript" src="../js/FileSaver.js" ></script>
 </head>
-<body>
-    <div class="grid">
+<body id="body">
+    <form class="grid" autocomplete="off" action="javascript:;" onsubmit="SavePageAsPNG()" onreset="ResetPage()">
         <h1>Natoli Tolerator</h1>
         <div class="grid">
             <div class=" grid-item size1of1">
@@ -22,7 +25,7 @@
                 <select class="lastunit size1of1" id="toleranceStyle" oninput="ToleranceStyle_OnInput()">
                     <option value="none"></option>
                     <option value="natoliTolerance">Natoli</option>
-                    <option value="euTolerance">European</option>
+                    <option value="euTolerance">ISO (European)</option>
                     <option value="pmTolerance">+/-</option>
                 </select>
             </div>
@@ -37,8 +40,7 @@
             </div>
         </div>
         <div class="grid">
-            <div id="natoliStyleDiv" class="grid-item size1of1">
-                <p></p>
+            <div id="natoliStyleDiv">
             </div>
             <div id="euStyleDiv" class="grid-item size1of1">
                 <div class="grid-item size1of1">
@@ -248,6 +250,173 @@
                 </div>
             </div>
         </div>
-    </div>
+        <input type="submit" class="button" value="Save Page">
+        <input type="reset" class="button" value="Reset">
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </body>
+<script type="text/javascript">
+    cosha({
+        className: 'colorful-shadow',
+        blur: '10px',
+        brightness: '125%',
+        saturation: '110%',
+        x: '2px',
+        y: '6px'
+    });
+</script>
+<script type="text/javascript">
+    function SavePageAsPNG(){
+        var node = document.getElementById('body');
+        domtoimage.toPng(node, {bgcolor: "white"})
+            .then(function (dataUrl) {
+            var link = document.createElement('a');
+            var width = document.getElementById('width').value;
+            var length = document.getElementById('length').value;
+            var tolStyle = "";
+            switch(document.getElementById('toleranceStyle').value){
+                case "natoliTolerance":
+                    tolStyle = "Natoli";
+                    width = Number(width).toLocaleString(undefined, { minimumFractionDigits: 4 });
+                    length = Number(length).toLocaleString(undefined, { minimumFractionDigits: 4 });
+                    break;
+                case "euTolerance":
+                    var upperTipDeviation = document.getElementById('eUStyleUpperTipDeviation').value;
+                    var upperTipGrade = document.getElementById('eUStyleUpperTipGrade').value;
+                    var lowerTipDeviation = document.getElementById('eUStyleLowerTipDeviation').value;
+                    var lowerTipGrade = document.getElementById('eUStyleLowerTipGrade').value;
+                    var dieBoreDeviation = document.getElementById('eUStyleDieDeviation').value;
+                    var dieBoreGrade = document.getElementById('eUStyleDieGrade').value;
+                    if(upperTipDeviation == "0")
+                    {
+                        upperTipDeviation="";
+                    }
+                    if(upperTipGrade == "0")
+                    {
+                        upperTipGrade="";
+                    }
+                    if(lowerTipDeviation == "0")
+                    {
+                        lowerTipDeviation="";
+                    }
+                    if(lowerTipGrade == "0")
+                    {
+                        lowerTipGrade="";
+                    }
+                    if(dieBoreDeviation == "0")
+                    {
+                        dieBoreDeviation="";
+                    }
+                    else
+                    {
+                        dieBoreDeviation=dieBoreDeviation.toUpperCase();
+                    }
+                    if(dieBoreGrade == "0")
+                    {
+                        dieBoreGrade="";
+                    }
+                    tolStyle = "ISO_" +upperTipDeviation+upperTipGrade+lowerTipDeviation+lowerTipGrade+dieBoreDeviation+dieBoreGrade;
+                    break;
+                case "pmTolerance":
+                    var highUpperTipToleranceSign = document.getElementById('pmHighUpperTipToleranceSign').value;
+                    var highUpperTipTolerance = Number(document.getElementById('pmHighUpperTipTolerance').value);
+                    var lowUpperTipToleranceSign = document.getElementById('pmLowUpperTipToleranceSign').value;
+                    var lowUpperTipTolerance = Number(document.getElementById('pmLowUpperTipTolerance').value);
+                    var highLowerTipToleranceSign = document.getElementById('pmHighLowerTipToleranceSign').value;
+                    var highLowerTipTolerance = Number(document.getElementById('pmHighLowerTipTolerance').value);
+                    var lowLowerTipToleranceSign = document.getElementById('pmLowLowerTipToleranceSign').value;
+                    var lowLowerTipTolerance = Number(document.getElementById('pmLowLowerTipTolerance').value);
+                    var highDieToleranceSign = document.getElementById('pmHighDieToleranceSign').value;
+                    var highDieTolerance = Number(document.getElementById('pmHighDieTolerance').value);
+                    var lowDieToleranceSign = document.getElementById('pmHighDieToleranceSign').value;
+                    var lowDieTolerance = Number(document.getElementById('pmHighDieTolerance').value);
+                    if(highUpperTipTolerance != 0)
+                    {
+                        highUpperTipTolerance = highUpperTipTolerance * 100;
+                    }
+                    else
+                    {
+                        highUpperTipToleranceSign = "";
+                        highUpperTipTolerance = "";
+                    }
+                    if(lowUpperTipTolerance != 0)
+                    {
+                        lowUpperTipTolerance = lowUpperTipTolerance * 100;
+                    }
+                    else
+                    {
+                        lowUpperTipToleranceSign = "";
+                        lowUpperTipTolerance = "";
+                    }
+                    if(highLowerTipTolerance != 0)
+                    {
+                        highLowerTipTolerance = highLowerTipTolerance * 100;
+                    }
+                    else
+                    {
+                        highLowerTipToleranceSign = "";
+                        highLowerTipTolerance = "";
+                    }
+                    if(lowLowerTipTolerance != 0)
+                    {
+                        lowLowerTipTolerance = lowLowerTipTolerance * 100;
+                    }
+                    else
+                    {
+                        lowLowerTipToleranceSign = "";
+                        lowLowerTipTolerance = "";
+                    }
+                    if(highDieTolerance != 0)
+                    {
+                        highDieTolerance = highDieTolerance * 100;
+                    }
+                    else
+                    {
+                        highDieToleranceSign = "";
+                        highDieTolerance = "";
+                    }
+                    if(lowDieTolerance != 0)
+                    {
+                        lowDieTolerance = lowDieTolerance * 100;
+                    }
+                    else
+                    {
+                        lowDieToleranceSign = "";
+                        lowDieTolerance = "";
+                    }
+                    tolStyle = "pm"+highUpperTipToleranceSign+highUpperTipTolerance+
+                    lowUpperTipToleranceSign+lowUpperTipTolerance+
+                    highLowerTipToleranceSign+highLowerTipTolerance+
+                    lowLowerTipToleranceSign+lowLowerTipTolerance+
+                    highDieToleranceSign+highDieTolerance+
+                    lowDieToleranceSign+lowDieTolerance;
+                    break;
+            }
+            var fileName = "";
+            if(Number(length) != 0)
+            {
+                fileName = width + "_X_" + length + "_" + tolStyle+".png";
+            }
+            else
+            {
+                fileName = width + "_" + tolStyle+".png";
+            }
+            link.download = fileName;
+            link.href = dataUrl;
+            link.click();
+        });
+    }
+</script>
+<script type="text/javascript">
+    function ResetPage(){
+        document.getElementById('width').value = "";
+        document.getElementById('length').value = "";
+        document.getElementById('toleranceStyle').value = "none";
+        Calculate();
+        ToleranceStyle_OnInput();
+    }
+</script>
 </html>

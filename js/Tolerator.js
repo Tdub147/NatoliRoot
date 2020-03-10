@@ -3,25 +3,25 @@ var NatoliShapedTolerances;
 var ISOFundamentalDeviations;
 var ISOToleranceGrades;
 // Fetches JSON's
-fetch('./json/NatoliRoundTolerances.json').then((response) => {
+fetch('../json/NatoliRoundTolerances.json').then((response) => {
     return response.json();
 }).then((data) => {
     console.log(data);
     NatoliRoundTolerances = data;
 })
-fetch('./json/NatoliShapedTolerances.json').then((response) => {
+fetch('../json/NatoliShapedTolerances.json').then((response) => {
     return response.json();
 }).then((data) => {
     console.log(data);
     NatoliShapedTolerances = data;
 })
-fetch('./json/ISOFundamentalDeviations.json').then((response) => {
+fetch('../json/ISOFundamentalDeviations.json').then((response) => {
     return response.json();
 }).then((data) => {
     console.log(data);
     ISOFundamentalDeviations = data;
 })
-ISOToleranceGrades = fetch('./json/ISOToleranceGrades.json').then((response) => {
+fetch('../json/ISOToleranceGrades.json').then((response) => {
     return response.json();
 }).then((data) => {
     console.log(data);
@@ -113,8 +113,8 @@ function NatoliCalculate() {
     if ($("#toleranceStyle").val() == "natoliTolerance" && !isNaN($("#width").val()) && $("#width").val() != "") {
         // Width and Length
         if (!isNaN($("#length").val()) && $("#length").val() != "") {
-            width = parseFloat($("#width").val());
-            length = parseFloat($("#length").val());
+            width = Number($("#width").val());
+            length = Number($("#length").val());
             var upperClearance;
             var upperUpToSizeArray = Object.keys(NatoliShapedTolerances['upper']['up_to_size']).sort(function (a, b) { return a - b });
             for (let i = 0; i < upperUpToSizeArray.length; i++) {
@@ -149,7 +149,7 @@ function NatoliCalculate() {
         }
         // Width only
         else {
-            width = parseFloat($("#width").val());
+            width = Number($("#width").val());
             var upperClearance;
             var upperUpToSizeArray = Object.keys(NatoliRoundTolerances['upper']['up_to_size']).sort(function (a, b) { return a - b });
             for (let i = 0; i < upperUpToSizeArray.length; i++) {
@@ -230,8 +230,8 @@ function EUCalculate(inputDeviation, inputGrade, isTip) {
             }
             // Has length (and width from above)
             if (!isNaN($("#length").val()) && $("#length").val() != "") {
-                width = parseFloat($("#width").val());
-                length = parseFloat($("#length").val());
+                width = Number($("#width").val());
+                length = Number($("#length").val());
                 let devSize = "0";
                 for (let i = 0; i < Object.keys(ISOFundamentalDeviations['up_to_size_mm']).length; i++) {
                     if (Object.keys(ISOFundamentalDeviations['up_to_size_mm'])[i] >= length) {
@@ -261,7 +261,7 @@ function EUCalculate(inputDeviation, inputGrade, isTip) {
             }
             // Doesn't have length
             else {
-                width = parseFloat($("#width").val());
+                width = Number($("#width").val());
                 let devSize = "0";
                 for (let i = 0; i < Object.keys(ISOFundamentalDeviations['up_to_size_mm']).length; i++) {
                     if (Object.keys(ISOFundamentalDeviations['up_to_size_mm'])[i] >= width) {
@@ -317,7 +317,7 @@ function PMCalculate(highSign, lowSign, highAbs, lowAbs, isTip) {
             low = high;
             high = _;
         }
-        widthMetric = parseFloat($("#width").val());
+        widthMetric = Number($("#width").val());
         var newWidthMetric
         var newWidth;
         if (isTip) {
@@ -331,7 +331,7 @@ function PMCalculate(highSign, lowSign, highAbs, lowAbs, isTip) {
         newWidth = Round(newWidthMetric / 25.4, 4);
         // Width and Length
         if (!isNaN($("#length").val()) && $("#length").val()) {
-            lengthMetric = parseFloat($("#width").val());
+            lengthMetric = Number($("#width").val());
             var newLengthMetric;
             var newLength;
             if (isTip) {
