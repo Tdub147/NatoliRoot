@@ -13,24 +13,25 @@
     <script type="text/javascript" src="../js/Tolerator.js"></script>
     <script src="https://unpkg.com/animate-css-grid@latest"></script>
     <script src="https://unpkg.com/cosha"></script>
-    <script src="../js/dom-to-image.js"></script>
+    <script type="text/javascript" src="../js/dom-to-image.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
     <script type="text/javascript" src="../js/FileSaver.js" ></script>
 </head>
 <body id="body">
-    <form class="grid" autocomplete="off" action="javascript:;" onsubmit="SavePageAsPNG()" onreset="ResetPage()">
+    <form class="grid" autocomplete="off" action="javascript:;" onsubmit="SavePageAsPNG()" onreset="RefreshPage()">
         <h1>Natoli Tolerator</h1>
         <div style="width: fit-content;">
             <div class="select-grandparent">
-                <div class="select-parent">
-                    <select class="select" id="toleranceStyle" oninput="ToleranceStyle_OnInput()">
-                        <option class="select-items" value="none">Select Tolerance:</option>
+                <div class="select-parent boxshadow">
+                    <select class="select" id="toleranceStyle">
+                        <option class="select-selected" value="none">Select Tolerance:</option>
                         <option value="natoliTolerance">Natoli</option>
                         <option value="euTolerance">ISO (European)</option>
                         <option value="pmTolerance">+/-</option>
                     </select>
-                    <div class="select-selected">
+                    <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
                     </div>
-                    <div class="select-items select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <div class="select-items box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                         <div></div>
                         <div></div>
                         <div></div>
@@ -57,7 +58,7 @@
                 <div class="grid-item" style="width: fit-content;">
                     <label for="eUStyleUpperTipDeviation">Deviation:</label>
                     <div class="select-grandparent">
-                        <div class="select-parent">
+                        <div class="select-parent boxshadow">
                             <select id="eUStyleUpperTipDeviation" oninput="Calculate()">
                                 <option value="0">-</option>
                                 <option value="a">a</option>
@@ -73,7 +74,7 @@
                                 <option value="h">h</option>
                                 <option value="p">p</option>
                             </select>
-                            <div class="select-selected">
+                            <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
                             </div>
                             <div class="select-items select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                                 <div></div>
@@ -437,5 +438,15 @@
             link.click();
         });
     }
+</script>
+<script type="text/javascript" id="documentReadyScript">
+    document.addEventListener("click", closeAllSelect);
+    styleDropDowns();
+    function SelectorClick(element, e){
+        e.preventDefault();
+        e.stopPropagation();
+        closeAllSelect(element);
+    }
+    ToleranceStyle_OnInput();
 </script>
 </html>

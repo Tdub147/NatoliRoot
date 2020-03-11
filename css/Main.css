@@ -10,6 +10,10 @@ html
     background-color: #EFEFEF !important;
 }
 
+.boxshadow{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
 .button
 {
     background-color: #00A7E1;
@@ -43,3 +47,113 @@ html
     background-color: #007EA7;
     border-radius: 5px;
 }
+
+
+
+/*  *SELECT (Dropdown)
+*   Build HTML similar to:
+<div class="select-grandparent">
+   <div class="select-parent boxshadow">
+!       <!-- Normal Select -->
+       <select class="select" id="toleranceStyle">
+!      <!-- Call specific event like: onclick="SelectorClick(this,event); specificEvent();"  -->
+           <option class="select-selected" value="none" onclick="SelectorClick(this,event);">Select Tolerance:</option>
+           <option value="natoliTolerance">Natoli</option>
+           <option value="euTolerance">ISO (European)</option>
+           <option value="pmTolerance">+/-</option>
+       </select>
+!      <!-- Contains the selected element -->
+       <div class="select-selected">
+       </div>
+       <div class="select-items select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+!          <!-- These must be 1 less than the number of otpions from the selector -->
+           <div></div>
+           <div></div>
+           <div></div>
+       </div>
+   </div>
+</div>
+!script
+<script type="text/javascript" id="documentReadyScript">
+    document.addEventListener("click", closeAllSelect);
+    styleDropDowns();
+    function SelectorClick(element, e){
+        e.preventDefault();
+        e.stopPropagation();
+        closeAllSelect(element);
+    }
+    // Any other code here.
+</script>
+*/
+/* select */
+.select{
+    position:absolute;
+  }
+  /* select's parent */
+  .select-parent {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+  }
+  /* parent's optional state when opened */
+  .opened {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  /* select's grandparent */
+  .select-grandparent{
+    position:relative;
+  }
+  .select-parent select {
+    display: none; /*hide original SELECT element: */
+  }
+  /* displayed select (selected item) */
+  .select-selected {
+    background-color: #00A7E1;
+  }
+  /* Style the arrow inside the select element: */
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color:  rgb(36, 34, 34) transparent transparent transparent;
+  }
+  /* Point the arrow upwards when the select box is open (active): */
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent rgb(36, 34, 34) transparent;
+    top: 7px;
+  }
+  /* style the items (options), including the selected item: */
+  .select-items div,.select-selected {
+    color:black; /* font color */
+    padding: 8px 30px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+  }
+  
+  /* Style items (options): */
+  .select-items {
+    position: absolute;
+    background-color:  #00A7E1;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    
+  }
+  
+  /* Hide the items when the select box is closed: */
+  .select-hide {
+    display: none;
+  }
+  /* Hover/selected transparency transparency */
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
