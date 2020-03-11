@@ -28,6 +28,14 @@ fetch('../json/ISOToleranceGrades.json').then((response) => {
     ISOToleranceGrades = data;
 })
 
+// On Document Ready
+$(document).ready(function () {
+    document.addEventListener("click", closeAllSelect);
+    styleDropDowns();
+    // Trigger toleranceStyle oninput event
+    $("#toleranceStyle").trigger("oninput");
+});
+
 // Hides or shows divs based on the tolerance style
 function ToleranceStyle_OnInput() {
     if ($("#toleranceStyle").val() == "natoliTolerance") {
@@ -36,7 +44,6 @@ function ToleranceStyle_OnInput() {
         $('#pmStyleDiv').slideUp(300);
         $('#width').attr('placeholder', 'Width (in)');
         $('#length').attr('placeholder', 'Length (in)');
-
         $('#width').prop('disabled', false);
         $('#length').prop('disabled', false);
     }
@@ -77,12 +84,99 @@ function ToleranceStyle_OnInput() {
     }
     Calculate();
 }
+function ResetPage(){
+    location.reload();
+    return false;
+}
+function closeAllSelect(elmnt) {
+    /* A function that will close all select boxes in the document,
+    except the current select box: */
+    var x, y, i, arrNo = [], otherParents, parent;
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    if (elmnt != undefined && elmnt.tagName == 'DIV' && elmnt.parentElement != undefined && elmnt.parentElement.classList.contains("select-parent")) {
+        parent = elmnt.parentElement;
+        parent.classList.toggle("opened");
+        parent.children[1].classList.toggle('select-arrow-active');
+        parent.children[2].classList.toggle('select-hide');
+    }
+    else {
+        otherParents = document.getElementsByClassName("select-parent");
+        for (i = 0; i < otherParents.length; i++){
+            if (otherParents[i] != parent) {
+                otherParents[i].classList.remove('opened');
+                otherParents[i].children[1].classList.remove('select-arrow-active');
+                otherParents[i].children[2].classList.add('select-hide');
+            }
+        }
+    }
 
-// On Document Ready
-$(document).ready(function () {
-    // Trigger toleranceStyle oninput event
-    $("#toleranceStyle").trigger("oninput");
-});
+    // for (i = 0; i < y.length; i++) {
+    //     if (elmnt == y[i]) {
+    //     arrNo.push(i)
+    //     } else {
+    //         y[i].classList.remove("select-arrow-active");
+    //         //y[i].parentElement.classList.remove("opened");
+    //     }
+    // }
+    // for (i = 0; i < x.length; i++) {
+    //     if (arrNo.indexOf(i)) {
+    //         x[i].classList.add("select-hide");
+    //     }
+    // }
+}
+
+function styleDropDowns() {
+    var parent, x, i, j, selElmnt, a, b, c;
+    /* Look for any elements with the class "select-parent": */
+    x = document.getElementsByClassName("select-parent");
+    for (i = 0; i < x.length; i++) {
+        parent = x[i];
+        selElmnt = parent.children[0];
+        a = parent.children[1];
+        b = parent.children[2];
+        // Set a to have the text of the selected item.
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        for (j = 1; j < selElmnt.length; j++) {
+            c = b.children[j - 1];
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function (e) {
+                /* When an item is clicked, update the original select box, and the selected item: */
+                var y, i, k, selElmnt, a, parent, b;
+                parent = this.parentElement.parentElement;
+                selElmnt = parent.children[0];
+                a = parent.children[1];
+                b = parent.children[2];
+                for (i = 0; i < selElmnt.length; i++) {
+                    if (selElmnt.options[i].innerHTML == this.innerHTML) {
+                        selElmnt.selectedIndex = i;
+                        a.innerHTML = this.innerHTML;
+                        y = b.getElementsByClassName("same-as-selected");
+                        for (k = 0; k < y.length; k++) {
+                            y[k].removeAttribute("class");
+                        }
+                        this.setAttribute("class", "same-as-selected");
+                        break;
+                    }
+                }
+                a.click();
+            });
+        }
+        a.addEventListener("click", function (e) {
+            /* When the select box is clicked, close any other select boxes,
+            and open/close the current select box: */
+            e.preventDefault();
+            //this.parentElement.classList.toggle('opened');
+            e.stopPropagation();
+            closeAllSelect(this);
+            //var sadfad = this.nextSibling;
+            //this.nextSibling.classList.toggle("select-hide");
+            ToleranceStyle_OnInput();
+        });
+    }
+}
+
+
 
 // Calls the calculators based on tolerance style
 function Calculate() {
