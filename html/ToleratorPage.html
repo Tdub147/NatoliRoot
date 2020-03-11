@@ -31,7 +31,7 @@
                     </select>
                     <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
                     </div>
-                    <div class="select-items box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <div class="select-items boxshadow select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                         <div></div>
                         <div></div>
                         <div></div>
@@ -55,9 +55,9 @@
                 <div class="grid-item size1of1">
                     <h3>Upper Tip Tolerance</h3>
                 </div>
-                <div class="grid-item" style="width: fit-content;">
-                    <label for="eUStyleUpperTipDeviation">Deviation:</label>
-                    <div class="select-grandparent">
+                <div>
+                    <label class="grid-item " for="eUStyleUpperTipDeviation">Deviation:</label>
+                    <div class="select-grandparent grid-item">
                         <div class="select-parent boxshadow">
                             <select id="eUStyleUpperTipDeviation" oninput="Calculate()">
                                 <option value="0">-</option>
@@ -76,7 +76,7 @@
                             </select>
                             <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
                             </div>
-                            <div class="select-items select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                            <div class="select-items boxshadow select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                                 <div></div>
                                 <div></div>
                                 <div></div>
@@ -92,28 +92,54 @@
                             </div>
                         </div>
                     </div>
-                    <label for="eUStyleUpperTipGrade">Grade:</label>
-                    <select id="eUStyleUpperTipGrade" oninput="Calculate()">
-                        <option value="0"></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                    </select>
+                    <label class="grid-item" for="eUStyleUpperTipGrade">Grade:</label>
+                    <div class="select-grandparent grid-item">
+                        <div class="select-parent boxshadow">
+                            <select id="eUStyleUpperTipGrade" oninput="Calculate()">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                            </select>
+                            <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                            </div>
+                            <div class="select-items boxshadow select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid-item size1of1">
                     <h3>Lower Tip Tolerance</h3>
@@ -441,12 +467,12 @@
 </script>
 <script type="text/javascript" id="documentReadyScript">
     document.addEventListener("click", closeAllSelect);
-    styleDropDowns();
     function SelectorClick(element, e){
         e.preventDefault();
         e.stopPropagation();
         closeAllSelect(element);
     }
+    styleDropDowns();
     ToleranceStyle_OnInput();
 </script>
 </html>

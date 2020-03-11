@@ -96,6 +96,7 @@ html
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     overflow: hidden;
+    min-width: 100px;
   }
   /* parent's optional state when opened */
   .opened {
@@ -104,6 +105,8 @@ html
   }
   /* select's grandparent */
   .select-grandparent{
+    padding-left: 0;
+    padding-right: 0;
     position:relative;
   }
   .select-parent select {
@@ -137,7 +140,7 @@ html
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
   }
-  
+
   /* Style items (options): */
   .select-items {
     position: absolute;
@@ -146,9 +149,8 @@ html
     left: 0;
     right: 0;
     z-index: 99;
-    
   }
-  
+
   /* Hide the items when the select box is closed: */
   .select-hide {
     display: none;
