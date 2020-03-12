@@ -53,10 +53,11 @@ button:focus {
   padding-bottom: 2.5rem;    /* Footer height */
 }
 
-footer {
+#footer {
   position: absolute;
   bottom: 0;
   width: 95%;
+  text-align: right;
   height: 2.5rem;            /* Footer height */
 }
 
