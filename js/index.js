@@ -1,4 +1,3 @@
-
 /**
  * Refreshes the page.
  * @return {void} void
@@ -14,22 +13,26 @@ function RefreshPage() {
  * @return {void} void
  * */
 function closeAllSelect(elmnt) {
-    var x, y, i, arrNo = [], otherParents, parent;
+    var x, y, i, otherParents, parent;
     x = document.getElementsByClassName("select-items");
     y = document.getElementsByClassName("select-selected");
-    if (elmnt != undefined && elmnt.tagName == 'DIV' && elmnt.parentElement != undefined && elmnt.parentElement.classList.contains("select-parent")) {
+    if (
+        elmnt != undefined &&
+        elmnt.tagName == "DIV" &&
+        elmnt.parentElement != undefined &&
+        elmnt.parentElement.classList.contains("select-parent")
+    ) {
         parent = elmnt.parentElement;
         parent.classList.toggle("opened");
-        parent.children[1].classList.toggle('select-arrow-active');
-        parent.children[2].classList.toggle('select-hide');
-    }
-    else {
+        parent.children[1].classList.toggle("select-arrow-active");
+        parent.children[2].classList.toggle("select-hide");
+    } else {
         otherParents = document.getElementsByClassName("select-parent");
-        for (i = 0; i < otherParents.length; i++){
+        for (i = 0; i < otherParents.length; i++) {
             if (otherParents[i] != parent) {
-                otherParents[i].classList.remove('opened');
-                otherParents[i].children[1].classList.remove('select-arrow-active');
-                otherParents[i].children[2].classList.add('select-hide');
+                otherParents[i].classList.remove("opened");
+                otherParents[i].children[1].classList.remove("select-arrow-active");
+                otherParents[i].children[2].classList.add("select-hide");
             }
         }
     }
@@ -51,8 +54,12 @@ function styleDropDowns() {
         b = parent.children[2];
         // Set a to have the text of the selected item.
         a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-        for (j = 1; j < selElmnt.length; j++) {
-            c = b.children[j - 1];
+        var offset = 1;
+        if (selElmnt.id.startsWith("pm")) {
+            offset = 0;
+        }
+        for (j = offset; j < selElmnt.length; j++) {
+            c = b.children[j - offset];
             c.innerHTML = selElmnt.options[j].innerHTML;
             c.addEventListener("click", function (e) {
                 // When an item is clicked, update the original select box, and the selected item:

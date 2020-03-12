@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/ToleratorStyle.css">
-    <link rel="stylesheet" type="text/css" href="../css/Main.css">
-    <link rel="stylesheet" href="../fonts/Valera-Round.css">
-    <link rel="stylesheet" href="../fonts/Valera-Round.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/ToleratorStyle.css" />
+    <link rel="stylesheet" type="text/css" href="../css/Main.css" />
+    <link rel="stylesheet" href="../fonts/Valera-Round.css" />
+    <link rel="stylesheet" href="../fonts/Valera-Round.css" />
     <title>Natoli Tolerator</title>
-    <link rel="shortcut icon" href="./img/LandingPage_Logo.png">
+    <link rel="shortcut icon" href="./img/LandingPage_Logo.png" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <script type="text/javascript" src="../js/Tolerator.js"></script>
     <script src="https://unpkg.com/animate-css-grid@latest"></script>
-    <script src="https://unpkg.com/cosha"></script>
-    <script type="text/javascript" src="../js/dom-to-image.js"></script>
+    <script src="https://unpkg.com/cosha@latest"></script>
+    <!--<script type="text/javascript" src="../js/dom-to-image.js"></script>-->
+    <script src="https://unpkg.com/dom-to-image@latest"></script>
     <script type="text/javascript" src="../js/index.js"></script>
-    <script type="text/javascript" src="../js/FileSaver.js" ></script>
+    <script type="text/javascript" src="../js/FileSaver.js"></script>
 </head>
+
 <body id="body">
     <form class="grid" autocomplete="off" action="javascript:;" onsubmit="SavePageAsPNG()" onreset="RefreshPage()">
         <h1>Natoli Tolerator</h1>
@@ -29,28 +32,27 @@
                         <option value="euTolerance">ISO (European)</option>
                         <option value="pmTolerance">+/-</option>
                     </select>
-                    <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
-                    </div>
-                    <div class="select-items boxshadow select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();"></div>
+                    <div class="select-items boxshadow select-hide"
+                        style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
             </div>
-            <p class="grid"><br/></p>
+            <p class="grid"><br /></p>
             <h3>&nbsp;Size</h3>
             <div class="grid-item size3of8">
-                <input type="text" id="width" placeholder="Width" disabled oninput="Calculate()">
+                <input type="text" id="width" placeholder="Width" disabled oninput="Calculate()" />
             </div>
             <div class="grid-item" style="padding-top: 4px;">X</div>
             <div class="grid-item size3of8">
-                <input type="text" id="length" placeholder="Length" disabled oninput="Calculate()">
+                <input type="text" id="length" placeholder="Length" disabled oninput="Calculate()" />
             </div>
         </div>
         <div class="grid">
-            <div id="natoliStyleDiv">
-            </div>
+            <div id="natoliStyleDiv"></div>
             <div id="euStyleDiv" class="grid-item size1of1">
                 <div class="grid-item size1of1">
                     <h3>Upper Tip Tolerance</h3>
@@ -59,7 +61,7 @@
                     <label class="grid-item " for="eUStyleUpperTipDeviation">Deviation:</label>
                     <div class="select-grandparent grid-item">
                         <div class="select-parent boxshadow">
-                            <select id="eUStyleUpperTipDeviation" oninput="Calculate()">
+                            <select class="select" id="eUStyleUpperTipDeviation" oninput="Calculate()">
                                 <option value="0">-</option>
                                 <option value="a">a</option>
                                 <option value="b">b</option>
@@ -76,7 +78,8 @@
                             </select>
                             <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
                             </div>
-                            <div class="select-items boxshadow select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                            <div class="select-items boxshadow select-hide"
+                                style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                                 <div></div>
                                 <div></div>
                                 <div></div>
@@ -95,7 +98,7 @@
                     <label class="grid-item" for="eUStyleUpperTipGrade">Grade:</label>
                     <div class="select-grandparent grid-item">
                         <div class="select-parent boxshadow">
-                            <select id="eUStyleUpperTipGrade" oninput="Calculate()">
+                            <select class="select" id="eUStyleUpperTipGrade" oninput="Calculate()">
                                 <option value="0">-</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -118,7 +121,8 @@
                             </select>
                             <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
                             </div>
-                            <div class="select-items boxshadow select-hide" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                            <div class="select-items boxshadow select-hide"
+                                style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                                 <div></div>
                                 <div></div>
                                 <div></div>
@@ -145,329 +149,521 @@
                     <h3>Lower Tip Tolerance</h3>
                 </div>
                 <div class="grid-item size1of1">
-                    <label for="eUStyleLowerTipDeviation">Deviation:</label>
-                    <select id="eUStyleLowerTipDeviation" oninput="Calculate()">
-                        <option value="0"></option>
-                        <option value="a">a</option>
-                        <option value="b">b</option>
-                        <option value="c">c</option>
-                        <option value="cd">cd</option>
-                        <option value="d">d</option>
-                        <option value="e">e</option>
-                        <option value="ef">ef</option>
-                        <option value="f">f</option>
-                        <option value="fg">fg</option>
-                        <option value="g">g</option>
-                        <option value="h">h</option>
-                        <option value="p">p</option>
-                    </select>
-                    <label for="eUStyleLowerTipGrade">Grade:</label>
-                    <select id="eUStyleLowerTipGrade" oninput="Calculate()">
-                        <option value="0"></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                    </select>
+                    <label class="grid-item" for="eUStyleLowerTipDeviation">Deviation:</label>
+                    <div class="select-grandparent grid-item">
+                        <div class="select-parent boxshadow">
+                            <select class="select" id="eUStyleLowerTipDeviation" oninput="Calculate()">
+                                <option value="0">-</option>
+                                <option value="a">a</option>
+                                <option value="b">b</option>
+                                <option value="c">c</option>
+                                <option value="cd">cd</option>
+                                <option value="d">d</option>
+                                <option value="e">e</option>
+                                <option value="ef">ef</option>
+                                <option value="f">f</option>
+                                <option value="fg">fg</option>
+                                <option value="g">g</option>
+                                <option value="h">h</option>
+                                <option value="p">p</option>
+                            </select>
+                            <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                            </div>
+                            <div class="select-items boxshadow select-hide"
+                                style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="grid-item" for="eUStyleLowerTipGrade">Grade:</label>
+                    <div class="select-grandparent grid-item">
+                        <div class="select-parent boxshadow">
+                            <select class="select" id="eUStyleLowerTipGrade" oninput="Calculate()">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                            </select>
+                            <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                            </div>
+                            <div class="select-items boxshadow select-hide"
+                                style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid-item size1of1">
                     <h3>Die Tolerance</h3>
                 </div>
                 <div class="grid-item size1of1">
-                    <label for="eUStyleDieDeviation">Deviation:</label>
-                    <select id="eUStyleDieDeviation" oninput="Calculate()">
-                        <option value="0"></option>
-                        <option value="a">A</option>
-                        <option value="b">B</option>
-                        <option value="c">C</option>
-                        <option value="cd">CD</option>
-                        <option value="d">D</option>
-                        <option value="e">E</option>
-                        <option value="ef">EF</option>
-                        <option value="f">F</option>
-                        <option value="fg">FG</option>
-                        <option value="g">G</option>
-                        <option value="h">H</option>
-                        <option value="p">P</option>
-                    </select>
-                    <label for="eUStyleDieGrade">Grade:</label>
-                    <select id="eUStyleDieGrade" oninput="Calculate()">
-                        <option value="0"></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                    </select>
+                    <label class="grid-item" for="eUStyleDieDeviation">Deviation:</label>
+                    <div class="select-grandparent grid-item">
+                        <div class="select-parent boxshadow">
+                            <select class="select" id="eUStyleDieDeviation" oninput="Calculate()">
+                                <option value="0">-</option>
+                                <option value="a">A</option>
+                                <option value="b">B</option>
+                                <option value="c">C</option>
+                                <option value="cd">CD</option>
+                                <option value="d">D</option>
+                                <option value="e">E</option>
+                                <option value="ef">EF</option>
+                                <option value="f">F</option>
+                                <option value="fg">FG</option>
+                                <option value="g">G</option>
+                                <option value="h">H</option>
+                                <option value="p">P</option>
+                            </select>
+                            <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                            </div>
+                            <div class="select-items boxshadow select-hide"
+                                style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="grid-item" for="eUStyleDieGrade">Grade:</label>
+                    <div class="select-grandparent grid-item">
+                        <div class="select-parent boxshadow">
+                            <select class="select" id="eUStyleDieGrade" oninput="Calculate()">
+                                <option value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                            </select>
+                            <div class="select-selected" onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                            </div>
+                            <div class="select-items boxshadow select-hide"
+                                style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="pmStyleDiv" class="grid-item size1of1">
                 <div class="grid-item size1of1">
                     <h3>UpperTip Tolerance</h3>
                     <div class="grid-item size1of1">
-                        <select id="pmHighUpperTipToleranceSign" oninput="Calculate()">
-                            <option value="plus">+</option>
-                            <option selected="selected" value="minus">-</option>
-                        </select>
-                        <input id="pmHighUpperTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                        <div class="select-grandparent grid-item">
+                            <div class="select-parent boxshadow">
+                                <select class="select" id="pmHighUpperTipToleranceSign" oninput="Calculate()">
+                                    <option value="plus">+</option>
+                                    <option selected="selected" value="minus">-</option>
+                                </select>
+                                <div class="select-selected"
+                                    onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                                </div>
+                                <div class="select-items boxshadow select-hide"
+                                    style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="pmHighUpperTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
                     <div class="grid-item size1of1">
-                        <select id="pmLowUpperTipToleranceSign" oninput="Calculate()">
-                            <option value="plus">+</option>
-                            <option selected value="minus">-</option>
-                        </select>
-                        <input id="pmLowUpperTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                        <div class="select-grandparent grid-item">
+                            <div class="select-parent boxshadow">
+                                <select class="select" id="pmLowUpperTipToleranceSign" oninput="Calculate()">
+                                    <option value="plus">+</option>
+                                    <option selected value="minus">-</option>
+                                </select>
+                                <div class="select-selected"
+                                    onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                                </div>
+                                <div class="select-items boxshadow select-hide"
+                                    style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="pmLowUpperTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
                 </div>
                 <div class="grid-item size1of1">
                     <h3>Lower Tip Tolerance</h3>
                     <div class="grid-item size1of1">
-                        <select id="pmHighLowerTipToleranceSign" oninput="Calculate()">
-                            <option value="plus">+</option>
-                            <option selected value="minus">-</option>
-                        </select>
-                        <input id="pmHighLowerTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                        <div class="select-grandparent grid-item">
+                            <div class="select-parent boxshadow">
+                                <select class="select" id="pmHighLowerTipToleranceSign" oninput="Calculate()">
+                                    <option value="plus">+</option>
+                                    <option selected value="minus">-</option>
+                                </select>
+                                <div class="select-selected"
+                                    onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                                </div>
+                                <div class="select-items boxshadow select-hide"
+                                    style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="pmHighLowerTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
                     <div class="grid-item size1of1">
-                        <select id="pmLowLowerTipToleranceSign" oninput="Calculate()">
-                            <option value="plus">+</option>
-                            <option selected value="minus">-</option>
-                        </select>
-                        <input id="pmLowLowerTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                        <div class="select-grandparent grid-item">
+                            <div class="select-parent boxshadow">
+                                <select class="select" id="pmLowLowerTipToleranceSign" oninput="Calculate()">
+                                    <option value="plus">+</option>
+                                    <option selected value="minus">-</option>
+                                </select>
+                                <div class="select-selected"
+                                    onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                                </div>
+                                <div class="select-items boxshadow select-hide"
+                                    style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="pmLowLowerTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
                 </div>
                 <div class="grid-item size1of1">
                     <h3>Die Tolerance</h3>
                     <div class="grid-item size1of1">
-                        <select id="pmHighDieToleranceSign" oninput="Calculate()">
-                            <option value="plus">+</option>
-                            <option value="minus">-</option>
-                        </select>
-                        <input id="pmHighDieTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                        <div class="select-grandparent grid-item">
+                            <div class="select-parent boxshadow">
+                                <select class="select" id="pmHighDieToleranceSign" oninput="Calculate()">
+                                    <option value="plus">+</option>
+                                    <option value="minus">-</option>
+                                </select>
+                                <div class="select-selected"
+                                    onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                                </div>
+                                <div class="select-items boxshadow select-hide"
+                                    style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="pmHighDieTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
                     <div class="grid-item size1of1">
-                        <select id="pmLowDieToleranceSign" oninput="Calculate()">
-                            <option value="plus">+</option>
-                            <option value="minus">-</option>
-                        </select>
-                        <input id="pmLowDieTolerance" type="text" placeholder="(mm)" oninput="Calculate()">
+                        <div class="select-grandparent grid-item">
+                            <div class="select-parent boxshadow">
+                                <select class="select" id="pmLowDieToleranceSign" oninput="Calculate()">
+                                    <option value="plus">+</option>
+                                    <option value="minus">-</option>
+                                </select>
+                                <div class="select-selected"
+                                    onclick="SelectorClick(this,event); ToleranceStyle_OnInput();">
+                                </div>
+                                <div class="select-items boxshadow select-hide"
+                                    style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="pmLowDieTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
                 </div>
             </div>
         </div>
-        <div class="grid-item size1of1">
+        <div class="grid" style="width: fit-content ;border: solid rgb(73, 73, 73); border-radius: 4px; margin: 20px">
             <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
                 <div class="grid-item">
                     Upper tolerance:
                 </div>
-                <div class="grid-item" id="upperTolerance">
-                </div>
+                <div class="grid-item" id="upperTolerance"></div>
             </div>
             <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
                 <div class="grid-item">
                     Lower tolerance:
                 </div>
-                <div class="grid-item" id="lowerTolerance">
-                </div>
+                <div class="grid-item" id="lowerTolerance"></div>
             </div>
             <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
                 <div class="grid-item">
                     Die tolerance: &nbsp; &nbsp;
                 </div>
-                <div class="grid-item" id="dieTolerance">
-                </div>
+                <div class="grid-item" id="dieTolerance"></div>
             </div>
         </div>
-        <input id="button" type="submit" class="button" value="Save Page">
-        <input type="reset" class="button" value="Reset">
+        <input id="button" type="submit" class="button grid" value="Save Page" />
+        <input type="reset" class="button grid" value="Reset" />
     </form>
-    <br/>
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
 </body>
-<script type="text/javascript">
+<script type="text/javascript" id="colorfulImageShadow">
     cosha({
-        className: 'colorful-shadow',
-        blur: '10px',
-        brightness: '125%',
-        saturation: '110%',
-        x: '2px',
-        y: '6px'
+        className: "colorful-shadow",
+        blur: "10px",
+        brightness: "125%",
+        saturation: "110%",
+        x: "2px",
+        y: "6px"
     });
 </script>
-<script type="text/javascript">
-    function SavePageAsPNG(){
-        var node = document.getElementById('body');
-        domtoimage.toSvg(node)
-            .then(function (dataUrl) {
-            var link = document.createElement('a');
-            var width = document.getElementById('width').value;
-            var length = document.getElementById('length').value;
+<script type="text/javascript" id="savePage">
+    /*
+    Brave blocks the download if shield is up
+    */
+    function SavePageAsPNG() {
+        var node = document.getElementById("body");
+        domtoimage.toPng(node, { bgcolor: "white" }).then(function (dataUrl) {
+            var link = document.createElement("a");
+            var width = document.getElementById("width").value;
+            var length = document.getElementById("length").value;
             var tolStyle = "";
-            switch(document.getElementById('toleranceStyle').value){
+            switch (document.getElementById("toleranceStyle").value) {
                 case "natoliTolerance":
                     tolStyle = "Natoli";
-                    width = Number(width).toLocaleString(undefined, { minimumFractionDigits: 4 });
-                    length = Number(length).toLocaleString(undefined, { minimumFractionDigits: 4 });
+                    width = Number(width).toLocaleString(undefined, {
+                        minimumFractionDigits: 4
+                    });
+                    length = Number(length).toLocaleString(undefined, {
+                        minimumFractionDigits: 4
+                    });
                     break;
                 case "euTolerance":
-                    var upperTipDeviation = document.getElementById('eUStyleUpperTipDeviation').value;
-                    var upperTipGrade = document.getElementById('eUStyleUpperTipGrade').value;
-                    var lowerTipDeviation = document.getElementById('eUStyleLowerTipDeviation').value;
-                    var lowerTipGrade = document.getElementById('eUStyleLowerTipGrade').value;
-                    var dieBoreDeviation = document.getElementById('eUStyleDieDeviation').value;
-                    var dieBoreGrade = document.getElementById('eUStyleDieGrade').value;
-                    if(upperTipDeviation == "0")
-                    {
-                        upperTipDeviation="";
+                    var upperTipDeviation = document.getElementById(
+                        "eUStyleUpperTipDeviation"
+                    ).value;
+                    var upperTipGrade = document.getElementById("eUStyleUpperTipGrade")
+                        .value;
+                    var lowerTipDeviation = document.getElementById(
+                        "eUStyleLowerTipDeviation"
+                    ).value;
+                    var lowerTipGrade = document.getElementById("eUStyleLowerTipGrade")
+                        .value;
+                    var dieBoreDeviation = document.getElementById(
+                        "eUStyleDieDeviation"
+                    ).value;
+                    var dieBoreGrade = document.getElementById("eUStyleDieGrade").value;
+                    if (upperTipDeviation == "0") {
+                        upperTipDeviation = "";
                     }
-                    if(upperTipGrade == "0")
-                    {
-                        upperTipGrade="";
+                    if (upperTipGrade == "0") {
+                        upperTipGrade = "";
                     }
-                    if(lowerTipDeviation == "0")
-                    {
-                        lowerTipDeviation="";
+                    if (lowerTipDeviation == "0") {
+                        lowerTipDeviation = "";
                     }
-                    if(lowerTipGrade == "0")
-                    {
-                        lowerTipGrade="";
+                    if (lowerTipGrade == "0") {
+                        lowerTipGrade = "";
                     }
-                    if(dieBoreDeviation == "0")
-                    {
-                        dieBoreDeviation="";
+                    if (dieBoreDeviation == "0") {
+                        dieBoreDeviation = "";
+                    } else {
+                        dieBoreDeviation = dieBoreDeviation.toUpperCase();
                     }
-                    else
-                    {
-                        dieBoreDeviation=dieBoreDeviation.toUpperCase();
+                    if (dieBoreGrade == "0") {
+                        dieBoreGrade = "";
                     }
-                    if(dieBoreGrade == "0")
-                    {
-                        dieBoreGrade="";
-                    }
-                    tolStyle = "ISO_" +upperTipDeviation+upperTipGrade+lowerTipDeviation+lowerTipGrade+dieBoreDeviation+dieBoreGrade;
+                    tolStyle =
+                        "ISO_" +
+                        upperTipDeviation +
+                        upperTipGrade +
+                        lowerTipDeviation +
+                        lowerTipGrade +
+                        dieBoreDeviation +
+                        dieBoreGrade;
                     break;
                 case "pmTolerance":
-                    var highUpperTipToleranceSign = document.getElementById('pmHighUpperTipToleranceSign').value;
-                    var highUpperTipTolerance = Number(document.getElementById('pmHighUpperTipTolerance').value);
-                    var lowUpperTipToleranceSign = document.getElementById('pmLowUpperTipToleranceSign').value;
-                    var lowUpperTipTolerance = Number(document.getElementById('pmLowUpperTipTolerance').value);
-                    var highLowerTipToleranceSign = document.getElementById('pmHighLowerTipToleranceSign').value;
-                    var highLowerTipTolerance = Number(document.getElementById('pmHighLowerTipTolerance').value);
-                    var lowLowerTipToleranceSign = document.getElementById('pmLowLowerTipToleranceSign').value;
-                    var lowLowerTipTolerance = Number(document.getElementById('pmLowLowerTipTolerance').value);
-                    var highDieToleranceSign = document.getElementById('pmHighDieToleranceSign').value;
-                    var highDieTolerance = Number(document.getElementById('pmHighDieTolerance').value);
-                    var lowDieToleranceSign = document.getElementById('pmHighDieToleranceSign').value;
-                    var lowDieTolerance = Number(document.getElementById('pmHighDieTolerance').value);
-                    if(highUpperTipTolerance != 0)
-                    {
+                    var highUpperTipToleranceSign = document.getElementById(
+                        "pmHighUpperTipToleranceSign"
+                    ).value;
+                    var highUpperTipTolerance = Number(
+                        document.getElementById("pmHighUpperTipTolerance").value
+                    );
+                    var lowUpperTipToleranceSign = document.getElementById(
+                        "pmLowUpperTipToleranceSign"
+                    ).value;
+                    var lowUpperTipTolerance = Number(
+                        document.getElementById("pmLowUpperTipTolerance").value
+                    );
+                    var highLowerTipToleranceSign = document.getElementById(
+                        "pmHighLowerTipToleranceSign"
+                    ).value;
+                    var highLowerTipTolerance = Number(
+                        document.getElementById("pmHighLowerTipTolerance").value
+                    );
+                    var lowLowerTipToleranceSign = document.getElementById(
+                        "pmLowLowerTipToleranceSign"
+                    ).value;
+                    var lowLowerTipTolerance = Number(
+                        document.getElementById("pmLowLowerTipTolerance").value
+                    );
+                    var highDieToleranceSign = document.getElementById(
+                        "pmHighDieToleranceSign"
+                    ).value;
+                    var highDieTolerance = Number(
+                        document.getElementById("pmHighDieTolerance").value
+                    );
+                    var lowDieToleranceSign = document.getElementById(
+                        "pmHighDieToleranceSign"
+                    ).value;
+                    var lowDieTolerance = Number(
+                        document.getElementById("pmHighDieTolerance").value
+                    );
+                    if (highUpperTipTolerance != 0) {
                         highUpperTipTolerance = highUpperTipTolerance * 100;
-                    }
-                    else
-                    {
+                    } else {
                         highUpperTipToleranceSign = "";
                         highUpperTipTolerance = "";
                     }
-                    if(lowUpperTipTolerance != 0)
-                    {
+                    if (lowUpperTipTolerance != 0) {
                         lowUpperTipTolerance = lowUpperTipTolerance * 100;
-                    }
-                    else
-                    {
+                    } else {
                         lowUpperTipToleranceSign = "";
                         lowUpperTipTolerance = "";
                     }
-                    if(highLowerTipTolerance != 0)
-                    {
+                    if (highLowerTipTolerance != 0) {
                         highLowerTipTolerance = highLowerTipTolerance * 100;
-                    }
-                    else
-                    {
+                    } else {
                         highLowerTipToleranceSign = "";
                         highLowerTipTolerance = "";
                     }
-                    if(lowLowerTipTolerance != 0)
-                    {
+                    if (lowLowerTipTolerance != 0) {
                         lowLowerTipTolerance = lowLowerTipTolerance * 100;
-                    }
-                    else
-                    {
+                    } else {
                         lowLowerTipToleranceSign = "";
                         lowLowerTipTolerance = "";
                     }
-                    if(highDieTolerance != 0)
-                    {
+                    if (highDieTolerance != 0) {
                         highDieTolerance = highDieTolerance * 100;
-                    }
-                    else
-                    {
+                    } else {
                         highDieToleranceSign = "";
                         highDieTolerance = "";
                     }
-                    if(lowDieTolerance != 0)
-                    {
+                    if (lowDieTolerance != 0) {
                         lowDieTolerance = lowDieTolerance * 100;
-                    }
-                    else
-                    {
+                    } else {
                         lowDieToleranceSign = "";
                         lowDieTolerance = "";
                     }
-                    tolStyle = "pm"+highUpperTipToleranceSign+highUpperTipTolerance+
-                    lowUpperTipToleranceSign+lowUpperTipTolerance+
-                    highLowerTipToleranceSign+highLowerTipTolerance+
-                    lowLowerTipToleranceSign+lowLowerTipTolerance+
-                    highDieToleranceSign+highDieTolerance+
-                    lowDieToleranceSign+lowDieTolerance;
+                    tolStyle =
+                        "pm" +
+                        highUpperTipToleranceSign +
+                        highUpperTipTolerance +
+                        lowUpperTipToleranceSign +
+                        lowUpperTipTolerance +
+                        highLowerTipToleranceSign +
+                        highLowerTipTolerance +
+                        lowLowerTipToleranceSign +
+                        lowLowerTipTolerance +
+                        highDieToleranceSign +
+                        highDieTolerance +
+                        lowDieToleranceSign +
+                        lowDieTolerance;
                     break;
             }
             var fileName = "";
-            if(Number(length) != 0)
-            {
-                fileName = width + "_X_" + length + "_" + tolStyle+".png";
-            }
-            else
-            {
-                fileName = width + "_" + tolStyle+".png";
+            if (Number(length) != 0) {
+                fileName = width + "_X_" + length + "_" + tolStyle + ".png";
+            } else {
+                fileName = width + "_" + tolStyle + ".png";
             }
             //link.download = fileName;
-            link.download = "something.svg";
+            link.download = "something.png";
             link.href = dataUrl;
             link.click();
+            console.log(
+                "*\n*\n* Ad blocker or Brave Shield may block the download and corrupt the file.\n*\n*"
+            );
         });
     }
 </script>
 <script type="text/javascript" id="documentReadyScript">
     document.addEventListener("click", closeAllSelect);
-    function SelectorClick(element, e){
+    function SelectorClick(element, e) {
         e.preventDefault();
         e.stopPropagation();
         closeAllSelect(element);
@@ -475,4 +671,5 @@
     styleDropDowns();
     ToleranceStyle_OnInput();
 </script>
+
 </html>

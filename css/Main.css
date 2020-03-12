@@ -1,54 +1,79 @@
-*
-{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-html
-{
-    font-family: 'Varela Round' !important;
-    max-width: 100%;
-    background-color: #EFEFEF !important;
+html {
+  font-family: "Varela Round" !important;
+  max-width: 100%;
+  background-color: #efefef !important;
 }
 
-.boxshadow{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+.boxshadow {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.button
-{
-    background-color: #00A7E1;
-    border: 2px solid transparent;
-    color: #00171F;
-    margin-right: 10px;
-    padding: 10px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-    transition-duration: 0.2s;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    outline: none;
-    font-family: 'Varela Round';
+input{
+  padding: 8px;
+  border-radius: 4px;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  content: '';
+  position: relative;
+  border-radius: 4px;
+  border: 2px solid #007ea7;
+  outline: none;
 }
 
-.button:hover
-{
-    border: 2px solid #007EA7;
-    color: #00171F;
-    background-color: #00A7E1;
-    border-radius: 5px;
+.button {
+  background-color: #00a7e1;
+  border: 2px solid transparent;
+  color: #00171f;
+  margin-right: 10px;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  transition-duration: 0.2s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  outline: none;
+  font-family: "Varela Round";
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
-.button:active
-{
-    border: 2px solid #007EA7;
-    color: #00171F;
-    background-color: #007EA7;
-    border-radius: 5px;
+.button:hover {
+  border: 2px solid #007ea7;
+  color: #00171f;
+  background-color: #00a7e1;
+  border-radius: 5px;
 }
 
+.button:active {
+  border: 2px solid #007ea7;
+  color: #00171f;
+  background-color: #007ea7;
+  border-radius: 5px;
+}
 
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 
 /*  *SELECT (Dropdown)
 *   Build HTML similar to:
@@ -84,78 +109,96 @@ html
     }
     // Any other code here.
 </script>
+! Note:
+* In index.js styleDropDowns() the offset variable must be 0 to keep the 0'th index in the option list.
 */
 /* select */
-.select{
-    position:absolute;
-  }
-  /* select's parent */
-  .select-parent {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    overflow: hidden;
-    min-width: 100px;
-  }
-  /* parent's optional state when opened */
-  .opened {
-    border-bottom-left-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
-  }
-  /* select's grandparent */
-  .select-grandparent{
-    padding-left: 0;
-    padding-right: 0;
-    position:relative;
-  }
-  .select-parent select {
-    display: none; /*hide original SELECT element: */
-  }
-  /* displayed select (selected item) */
-  .select-selected {
-    background-color: #00A7E1;
-  }
-  /* Style the arrow inside the select element: */
-  .select-selected:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 20px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color:  rgb(36, 34, 34) transparent transparent transparent;
-  }
-  /* Point the arrow upwards when the select box is open (active): */
-  .select-selected.select-arrow-active:after {
-    border-color: transparent transparent rgb(36, 34, 34) transparent;
-    top: 7px;
-  }
-  /* style the items (options), including the selected item: */
-  .select-items div,.select-selected {
-    color:black; /* font color */
-    padding: 8px 30px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-  }
+.select {
+  position: absolute;
+}
+/* select's parent */
+.select-parent {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+  min-width: 100px;
+}
+/* parent's optional state when opened */
+.opened {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+/* select's grandparent */
+.select-grandparent {
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+}
+.select-parent select {
+  display: none; /*hide original SELECT element: */
+}
+/* displayed select (selected item) */
+.select-selected {
+  background-color: #00a7e1;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: rgb(36, 34, 34) transparent transparent transparent;
+}
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent rgb(36, 34, 34) transparent;
+  top: 7px;
+}
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+  color: black; /* font color */
+  padding: 8px 30px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
 
-  /* Style items (options): */
-  .select-items {
-    position: absolute;
-    background-color:  #00A7E1;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #00a7e1;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 
-  /* Hide the items when the select box is closed: */
-  .select-hide {
-    display: none;
-  }
-  /* Hover/selected transparency transparency */
-  .select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+/* Hover/selected transparency transparency */
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
