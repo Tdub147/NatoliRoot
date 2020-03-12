@@ -4,19 +4,18 @@
 *:after {
   box-sizing: inherit;
 }
+.grid{
+    margin-top: .4em;
+}
   .grid::after {
     content: "";
     clear: both;
     display: table;
   }
   .grid-item {
-    /* Width property */
     padding-right: .2em;
     padding-left: .2em;
     float: left;
-    /* border: 2px;
-    border-color: red;
-    border-style: solid; */
   }
 [class*="size"] {
     float: left;

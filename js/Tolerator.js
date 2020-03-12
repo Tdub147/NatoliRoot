@@ -39,25 +39,25 @@ fetch("../json/ISOToleranceGrades.json")
 // Hides or shows divs based on the tolerance style
 function ToleranceStyle_OnInput() {
   if ($("#toleranceStyle").val() == "natoliTolerance") {
-    $("#natoliStyleDiv").slideDown(600);
-    $("#euStyleDiv").slideUp(300);
-    $("#pmStyleDiv").slideUp(300);
+    $("#natoliStyleDiv").slideDown(0);
+    $("#euStyleDiv").slideUp(0);
+    $("#pmStyleDiv").slideUp(0);
     $("#width").attr("placeholder", "Width (in)");
     $("#length").attr("placeholder", "Length (in)");
     $("#width").prop("disabled", false);
     $("#length").prop("disabled", false);
   } else if ($("#toleranceStyle").val() == "euTolerance") {
-    $("#natoliStyleDiv").slideUp(600);
-    $("#euStyleDiv").slideDown(300);
-    $("#pmStyleDiv").slideUp(300);
+    $("#natoliStyleDiv").slideUp(0);
+    $("#euStyleDiv").slideDown(0);
+    $("#pmStyleDiv").slideUp(0);
     $("#width").attr("placeholder", "Width (mm)");
     $("#length").attr("placeholder", "Length (mm)");
     $("#width").prop("disabled", false);
     $("#length").prop("disabled", false);
   } else if ($("#toleranceStyle").val() == "pmTolerance") {
-    $("#pmStyleDiv").slideDown(600);
-    $("#natoliStyleDiv").slideUp(300);
-    $("#euStyleDiv").slideUp(300);
+    $("#pmStyleDiv").slideDown(0);
+    $("#natoliStyleDiv").slideUp(0);
+    $("#euStyleDiv").slideUp(0);
 
     $("#width").attr("placeholder", "Width (mm)");
     $("#length").attr("placeholder", "Length (mm)");

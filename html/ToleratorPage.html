@@ -20,8 +20,8 @@
     <script type="text/javascript" src="../js/FileSaver.js"></script>
 </head>
 
-<body id="body">
-    <form class="grid" autocomplete="off" action="javascript:;" onsubmit="SavePageAsPNG()" onreset="RefreshPage()">
+<body class="grid" id="body">
+    <form class="grid-item" autocomplete="off" action="javascript:;" onsubmit="SavePageAsPNG()" onreset="RefreshPage()">
         <h1>Natoli Tolerator</h1>
         <div style="width: fit-content;">
             <div class="select-grandparent">
@@ -46,15 +46,15 @@
             <div class="grid-item size3of8">
                 <input type="text" id="width" placeholder="Width" disabled oninput="Calculate()" />
             </div>
-            <div class="grid-item" style="padding-top: 4px;">X</div>
+            <div class="grid-item" style="padding-top: 8px; margin-right:4px; cursor:default;">X</div>
             <div class="grid-item size3of8">
                 <input type="text" id="length" placeholder="Length" disabled oninput="Calculate()" />
             </div>
         </div>
         <div class="grid">
             <div id="natoliStyleDiv"></div>
-            <div id="euStyleDiv" class="grid-item size1of1">
-                <div class="grid-item size1of1">
+            <div id="euStyleDiv" class="grid-item">
+                <div class="grid">
                     <h3>Upper Tip Tolerance</h3>
                 </div>
                 <div>
@@ -145,10 +145,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid-item size1of1">
+                <div class="grid">
                     <h3>Lower Tip Tolerance</h3>
                 </div>
-                <div class="grid-item size1of1">
+                <div class="grid-item">
                     <label class="grid-item" for="eUStyleLowerTipDeviation">Deviation:</label>
                     <div class="select-grandparent grid-item">
                         <div class="select-parent boxshadow">
@@ -236,10 +236,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid-item size1of1">
+                <div class="grid">
                     <h3>Die Tolerance</h3>
                 </div>
-                <div class="grid-item size1of1">
+                <div class="grid-item">
                     <label class="grid-item" for="eUStyleDieDeviation">Deviation:</label>
                     <div class="select-grandparent grid-item">
                         <div class="select-parent boxshadow">
@@ -328,10 +328,10 @@
                     </div>
                 </div>
             </div>
-            <div id="pmStyleDiv" class="grid-item size1of1">
-                <div class="grid-item size1of1">
-                    <h3>UpperTip Tolerance</h3>
-                    <div class="grid-item size1of1">
+            <div id="pmStyleDiv" class="grid-item">
+                <div class="grid">
+                    <h3>Upper Tip Tolerance</h3>
+                    <div class="grid">
                         <div class="select-grandparent grid-item">
                             <div class="select-parent boxshadow">
                                 <select class="select" id="pmHighUpperTipToleranceSign" oninput="Calculate()">
@@ -350,7 +350,7 @@
                         </div>
                         <input id="pmHighUpperTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
-                    <div class="grid-item size1of1">
+                    <div class="grid">
                         <div class="select-grandparent grid-item">
                             <div class="select-parent boxshadow">
                                 <select class="select" id="pmLowUpperTipToleranceSign" oninput="Calculate()">
@@ -370,9 +370,9 @@
                         <input id="pmLowUpperTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
                 </div>
-                <div class="grid-item size1of1">
+                <div class="grid">
                     <h3>Lower Tip Tolerance</h3>
-                    <div class="grid-item size1of1">
+                    <div class="grid">
                         <div class="select-grandparent grid-item">
                             <div class="select-parent boxshadow">
                                 <select class="select" id="pmHighLowerTipToleranceSign" oninput="Calculate()">
@@ -391,7 +391,7 @@
                         </div>
                         <input id="pmHighLowerTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
-                    <div class="grid-item size1of1">
+                    <div class="grid">
                         <div class="select-grandparent grid-item">
                             <div class="select-parent boxshadow">
                                 <select class="select" id="pmLowLowerTipToleranceSign" oninput="Calculate()">
@@ -411,9 +411,9 @@
                         <input id="pmLowLowerTipTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
                 </div>
-                <div class="grid-item size1of1">
+                <div class="grid">
                     <h3>Die Tolerance</h3>
-                    <div class="grid-item size1of1">
+                    <div class="grid">
                         <div class="select-grandparent grid-item">
                             <div class="select-parent boxshadow">
                                 <select class="select" id="pmHighDieToleranceSign" oninput="Calculate()">
@@ -432,7 +432,7 @@
                         </div>
                         <input id="pmHighDieTolerance" type="text" placeholder="(mm)" oninput="Calculate()" />
                     </div>
-                    <div class="grid-item size1of1">
+                    <div class="grid">
                         <div class="select-grandparent grid-item">
                             <div class="select-parent boxshadow">
                                 <select class="select" id="pmLowDieToleranceSign" oninput="Calculate()">
@@ -454,29 +454,29 @@
                 </div>
             </div>
         </div>
-        <div class="grid" style="width: fit-content ;border: solid rgb(73, 73, 73); border-radius: 4px; margin: 20px">
-            <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
-                <div class="grid-item">
-                    Upper tolerance:
-                </div>
-                <div class="grid-item" id="upperTolerance"></div>
-            </div>
-            <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
-                <div class="grid-item">
-                    Lower tolerance:
-                </div>
-                <div class="grid-item" id="lowerTolerance"></div>
-            </div>
-            <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
-                <div class="grid-item">
-                    Die tolerance: &nbsp; &nbsp;
-                </div>
-                <div class="grid-item" id="dieTolerance"></div>
-            </div>
-        </div>
-        <input id="button" type="submit" class="button grid" value="Save Page" />
-        <input type="reset" class="button grid" value="Reset" />
+        <input style="margin: 24px 0px;" id="button" type="submit" class="button grid" value="Save Page" />
+        <input style="margin: 24px 8px;" type="reset" class="button grid" value="Reset" />
     </form>
+    <div class="grid-item boxshadow" style="text-align:left; vertical-align:middle; width: fit-content ;border: solid rgb(73, 73, 73); border-radius: 4px; margin: 20px;">
+        <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
+            <div class="grid-item" style="cursor: default;">
+                Upper tolerance:
+            </div>
+            <div class="grid-item" style="cursor: default;" id="upperTolerance"></div>
+        </div>
+        <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
+            <div class="grid-item" style="cursor: default;">
+                Lower tolerance:
+            </div>
+            <div class="grid-item" style="cursor: default;" id="lowerTolerance"></div>
+        </div>
+        <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
+            <div class="grid-item" style="cursor: default;">
+                Die tolerance: &nbsp; &nbsp;
+            </div>
+            <div class="grid-item" style="cursor: default;" id="dieTolerance"></div>
+        </div>
+    </div>
     <br />
     <br />
     <br />
@@ -651,8 +651,7 @@
             } else {
                 fileName = width + "_" + tolStyle + ".png";
             }
-            //link.download = fileName;
-            link.download = "something.png";
+            link.download = fileName;
             link.href = dataUrl;
             link.click();
             console.log(

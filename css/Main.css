@@ -12,6 +12,24 @@ html {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+h1{
+  cursor:default;
+}
+h2{
+  cursor:default;
+}
+h3{
+  cursor:default;
+}
+h4{
+  cursor:default;
+}
+h5{
+  cursor:default;
+}
+h6{
+  cursor:default;
+}
 input{
   padding: 8px;
   border-radius: 4px;
