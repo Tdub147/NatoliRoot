@@ -1,17 +1,8 @@
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+
 .grid{
     margin-top: .4em;
 }
-  .grid::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
   .grid-item {
     padding-right: .2em;
     padding-left: .2em;

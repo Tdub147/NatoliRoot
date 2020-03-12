@@ -48,9 +48,13 @@ button:focus {
   position: relative;
   min-height: 100%;
 }
+page-container {
+  position: relative;
+  min-height: 100%;
+}
 
 #content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+  padding-bottom: 2.5%;    /* Footer height */
 }
 
 #footer {
@@ -58,7 +62,7 @@ button:focus {
   bottom: 0;
   width: 95%;
   text-align: right;
-  height: 2.5rem;            /* Footer height */
+  height: 2.5%;            /* Footer height */
 }
 
 .button {

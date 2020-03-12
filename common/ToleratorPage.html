@@ -17,9 +17,10 @@
     <script type="text/javascript" src="../js/FileSaver.js"></script>
 </head>
 
-<body class="grid" id="body">
-    <div include-html="Header.html"></div>
-    <div id="page-container"></div>
+<body id="body">
+    <div class="page-container">
+    <div include-html="Header.html">
+    </div>
         <div id="content-wrap">
             <form class="grid-item" autocomplete="off" action="javascript:;" onsubmit="SavePageAsPNG()" onreset="RefreshPage()">
                 <h1>Natoli Tolerator</h1>
@@ -441,11 +442,8 @@
                         </div>
                     </div>
                 </div>
-                <input style="margin: 24px 0px;" id="button" type="submit" class="button grid" value="Save Page" />
-                <input style="margin: 24px 8px;" type="reset" class="button grid" value="Reset" />
             </form>
-            <div class="grid-item boxshadow"
-                style="text-align:left; vertical-align:middle; width: fit-content ;border: solid rgb(73, 73, 73); border-radius: 4px; margin: 20px;">
+            <div class="grid-item boxshadow" style="width: fit-content ;border: solid rgb(73, 73, 73); border-radius: 4px; margin: 20px;">
                 <div class="grid" style="margin-top: .75em; margin-bottom: .75em;">
                     <div class="grid-item" style="cursor: default;">
                         Upper tolerance:
@@ -465,8 +463,12 @@
                     <div class="grid-item" style="cursor: default;" id="dieTolerance"></div>
                 </div>
             </div>
-            <div include-html="Footer.html"></div>
+            <div style="position: absolute; bottom: 3%; right: 3%;">
+                <input id="button" type="submit" class="button" value="Save Page" />
+                <input type="reset" class="button" value="Reset" />
+            </div>
         </div>
+        <div include-html="Footer.html"></div>
     </div>
 </body>
 <script type="text/javascript" id="colorfulImageShadow">
