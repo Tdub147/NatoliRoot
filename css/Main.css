@@ -209,6 +209,8 @@ button:focus {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+  border-bottom-left-radius: 20px; 
+  border-bottom-right-radius: 20px;
 }
 
 /* Hide the items when the select box is closed: */
