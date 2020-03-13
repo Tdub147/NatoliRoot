@@ -1,8 +1,7 @@
 
 #footer {
     position: absolute;
-    bottom: 0;
-    width: 90%;
-    text-align: right;
+    bottom: 20px;
+    right: 20px;
     height: 2.5%;            /* Footer height */
   }
