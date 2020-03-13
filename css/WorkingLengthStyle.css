@@ -75,7 +75,7 @@ h1
     flex-direction: column;
     justify-content: start;
     width: auto;
-    flex: 5%;
+    flex: 10%;
 }
 
 .col2
@@ -124,12 +124,10 @@ h1
 .number_spinner
 {
     margin-bottom: 14px;
-    width: 60px;
+    width: 80px;
     height: 25px;
-    border: none;
-    padding-left: 2px;
+    padding-left: 4px;
     /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
-    border-radius: 5px;
 }
 
 .tol_label
