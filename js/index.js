@@ -1,7 +1,12 @@
 $(document).ready(function () {
-        includeHTML();
+    includeHTML();
 })
 
+function openMenu(){
+    //$("#menu-drop").slideDown(300);
+    //$("#menu-drop").slideUp(300);
+    document.getElementById("menu-closed").classList.toggle("highlight");
+}
 
 /**
  * Refreshes the page.

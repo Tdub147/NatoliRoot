@@ -3,16 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="Description" content="Header"/>
+        <link rel="shortcut icon" href="../img/LandingPage_Logo.png">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/Main.css">
         <link rel="stylesheet" href="../fonts/Valera-Round.css">
-        <link rel="shortcut icon" href="../img/LandingPage_Logo.png">
+        <link rel="stylesheet" href="../css/header.css">
+        <script type="text/javascript" src="../js/index.js"></script>
     </head>
     <body>
-        <nav>
-            <a href="index.html" class="button">Home</a>
-            <a href="WorkingLengthPage.html" class="button">WorkingLength</a>
-            <a href="ToleratorPage.html" class="button">Tolerator</a>
-            <a href="Resources.html" class="button">Resources</a>
+        <nav class="boxes">
+            <img id="logo" src="../img/LandingPage_Logo.png">
+            <img id="menu-closed" class="menu" src="../icons/969595-essentials/svg/016-detail-1.svg" alt="Menu Closed" onclick="openMenu()">
+            <div id="menu-items">
+                <a href="index.html" class="button">Home</a>
+                <a href="working_length.html" class="button">WorkingLength</a>
+                <a href="tolerator.html" class="button">Tolerator</a>
+                <a href="resources.html" class="button">Resources</a>
+            </div>
         </nav>
     </body>
+    <script>
+    </script>
 </html>

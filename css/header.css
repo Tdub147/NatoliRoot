@@ -1,0 +1,31 @@
+.boxes{
+    height: 5vh;
+    background-color: transparent;
+    }
+    #menu-items{
+        float: right;
+        padding:0 10px;
+        margin-right: 5vh;
+        }
+    #logo{
+        float: left;
+        padding:0 10px;
+        height: inherit;
+    }
+    .menu{
+        position: absolute;
+        height: inherit;
+        right: 10px;
+        top: 10px;
+    }
+    .menu:hover{
+        background-color: lightgray;
+        border-radius: 5px;
+    }
+    .hidden{
+        display: none;
+    }
+    .highlight{
+        background-color: lightgray;
+        border-radius: 5px;
+    }

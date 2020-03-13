@@ -69,7 +69,10 @@ page-container {
   background-color: #00a7e1;
   border: 2px solid transparent;
   color: #00171f;
+  margin-left: 10px;
   margin-right: 10px;
+  margin-top:5px;
+  margin-bottom:5px;
   padding: 10px 24px;
   text-align: center;
   text-decoration: none;
@@ -247,5 +250,3 @@ page-container {
   background-color: rgba(0, 0, 0, 0.1);
 }
 /* ****************************************************************************** */
-
-
