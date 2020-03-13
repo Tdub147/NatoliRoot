@@ -44,26 +44,6 @@ button:focus {
   border: 2px solid #007ea7;
   outline: none;
 }
-#page-container {
-  position: relative;
-  min-height: 100%;
-}
-page-container {
-  position: relative;
-  min-height: 100%;
-}
-
-#content-wrap {
-  padding-bottom: 2.5%;    /* Footer height */
-}
-
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 95%;
-  text-align: right;
-  height: 2.5%;            /* Footer height */
-}
 
 .button {
   background-color: #00a7e1;
@@ -90,6 +70,7 @@ page-container {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+  vertical-align: middle;
 }
 
 .button:hover {
@@ -239,6 +220,26 @@ page-container {
   overflow-y: visible;
   max-height: 700%;
 }
+  /* width */
+  .select-items::-webkit-scrollbar {
+    width: 20px;
+  }
+  /* Track */
+  .select-items::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  /* Handle */
+  .select-items::-webkit-scrollbar-thumb {
+    background: rgb(0,126,167);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  /* Handle on hover */
+  .select-items::-webkit-scrollbar-thumb:hover {
+    background: rgb(0,101,142);
+  }
 
 /* Hide the items when the select box is closed: */
 .select-hide {

@@ -1,24 +1,33 @@
-.boxes{
-    height: 5vh;
+.nav{
+    height: 5%;
     background-color: transparent;
+    display: flex;
+    }
+    .nav:hover{
+        margin-left: -50px;
+        margin-right: -50px;
+        margin-top: -50px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 50px;
+        background-color: #00e1ab;
+    }
+    .nav:before {
+        background-color:transparent;
     }
     #menu-items{
-        float: right;
-        padding:0 10px;
-        margin-right: 5vh;
+        display: flex;
+        height: inherit;
         }
     #logo{
-        float: left;
-        padding:0 10px;
-        height: inherit;
+        height: 60px;
+        vertical-align: middle;
     }
-    .menu{
-        position: absolute;
-        height: inherit;
-        right: 10px;
-        top: 10px;
+    .icon{
+        height: 40px;
+        vertical-align: middle;
     }
-    .menu:hover{
+    .icon:hover{
         background-color: lightgray;
         border-radius: 5px;
     }
