@@ -47,7 +47,7 @@
                     <div class="grid-item size3of8">
                         <input type="text" id="width" placeholder="Width" disabled oninput="Calculate()" />
                     </div>
-                    <div class="grid-item" style="padding-top: 8px; margin-right:4px; cursor:default;">X</div>
+                    <div class="grid-item" style="padding-top: .5em; margin-right:.25em; cursor:default;">X</div>
                     <div class="grid-item size3of8">
                         <input type="text" id="length" placeholder="Length" disabled oninput="Calculate()" />
                     </div>
@@ -55,7 +55,7 @@
                 <div class="grid">
                     <div id="natoliStyleDiv"></div>
                     <div id="euStyleDiv" class="grid-item">
-                        <div class="grid" style="margin-top: 10px;">
+                        <div class="grid" style="margin-top: .625em;">
                             <h3>Upper Tip Tolerance</h3>
                         </div>
                         <div style="display: flex;">
@@ -149,7 +149,7 @@
                         </div>
                         </div>
                         <div class="grid" >
-                            <h3 style="margin-top: 60px;">Lower Tip Tolerance</h3>
+                            <h3 style="margin-top: 3.75em;">Lower Tip Tolerance</h3>
                         </div>
                         <div style="display: flex;">
                             <div style="display: flex;">
@@ -242,7 +242,7 @@
                             </div>
                         </div>
                         <div class="grid">
-                            <h3 style="margin-top: 60px;">Die Tolerance</h3>
+                            <h3 style="margin-top: 3.75em;">Die Tolerance</h3>
                         </div>
                         <div style="display: flex;">
                             <div style="display: flex;">
@@ -456,20 +456,20 @@
                     </div>
                 </div>
             </form>
-            <div class="boxshadow" style="margin-right:auto; margin-bottom:auto; margin-top:50px; margin-left: 20px; width: 500px ;border: solid rgb(73, 73, 73); border-radius: 4px; padding-left:4px; padding-right:4px;">
-                <div style="display:flex; margin-top: 15px; margin-bottom: 15px; margin-left:auto;">
+            <div class="boxshadow" style="margin-right:auto; margin-bottom:auto; margin-top:3.125em; margin-left: 1.25em; width: 31.25em ;border: solid rgb(73, 73, 73); border-radius: .25em; padding-left:.25em; padding-right:.25em;">
+                <div style="display:flex; margin-top: .9375em; margin-bottom: .9375em; margin-left:auto;">
                     <div style="cursor: default;">
                         Upper tolerance:
                     </div>
                     <div style="display:flex; cursor: default;" id="upperTolerance"></div>
                 </div>
-                <div style="display:flex; margin-top: 15px; margin-bottom: 15px;">
+                <div style="display:flex; margin-top: .9375em; margin-bottom: .9375em;">
                     <div style="display:flex; cursor: default;">
                         Lower tolerance:
                     </div>
                     <div style="display:flex; cursor: default;" id="lowerTolerance"></div>
                 </div>
-                <div style="display:flex; margin-top: 15px; margin-bottom: 15px;">
+                <div style="display:flex; margin-top: .9375em; margin-bottom: .9375em;">
                     <div style="display:flex; cursor: default;">
                         Die tolerance: &nbsp; &nbsp;
                     </div>
@@ -478,8 +478,8 @@
             </div>
         </div>
         <div style="position: fixed; right:2.5em; bottom:3.75em; width:8.25em;">
-            <button class="button" style="margin-bottom:.625em; width: 100%; padding-left:0px; padding-right:0px;;" id="button" type="submit" >Save Page</button>
-            <button class="button" style="width: 100%; padding-left:0px; padding-right:0px;" type="reset" >Reset</button>
+            <button class="button" style="margin-bottom:.625em; width: 100%; padding-left:0em; padding-right:0em;;" id="button" type="submit" >Save Page</button>
+            <button class="button" style="width: 100%; padding-left:0em; padding-right:0em;" type="reset" >Reset</button>
         </div>
     </div>
     <div include-html="footer.html"></div>
@@ -487,11 +487,11 @@
 <script type="text/javascript" id="colorfulImageShadow">
     cosha({
         className: "colorful-shadow",
-        blur: "10px",
+        blur: ".625em",
         brightness: "125%",
         saturation: "110%",
-        x: "2px",
-        y: "6px"
+        x: ".125em",
+        y: ".375em"
     });
 </script>
 <script type="text/javascript" id="savePage">

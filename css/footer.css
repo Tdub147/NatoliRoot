@@ -12,4 +12,7 @@
     border-left:0em;
     border-right:0em;
     /* font-size: 30px; */
+    min-width: 32.75em;
+    overflow-wrap: normal;
+    overflow: hidden;
 }
