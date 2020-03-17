@@ -62,8 +62,7 @@ h1
 .inputs
 {
     height: 1.5625em;
-    width: 9.375em;
-    border: none;
+    width: 11em;
     margin-bottom: .625em;
     padding-left: .3125em;
     border-radius: .3125em;
@@ -123,10 +122,11 @@ h1
 
 .number_spinner
 {
-    margin-bottom: .875em;
+    margin-bottom: 1.4375em;
     width: 5em;
     height: 1.5625em;
     padding-left: .25em;
+    padding-right: 0em;
     /* box-shadow: 0 .5em 1em 0 rgba(0,0,0,0.2), 0 .375em 1.25em 0 rgba(0,0,0,0.19); */
 }
 

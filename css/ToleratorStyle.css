@@ -7,10 +7,8 @@
   .grid-item {
     padding-right: .2em;
     padding-left: .2em;
-    float: left;
   }
 [class*="size"] {
-    float: left;
     padding-top: .1em;
     padding-bottom: .1em;
   }
