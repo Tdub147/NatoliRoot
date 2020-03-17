@@ -1,5 +1,5 @@
 .nav{
-    height: 5%;
+    height: 3em;
     background-color: transparent;
     display: flex;
     }
@@ -8,21 +8,21 @@
         height: inherit;
         }
     #logo{
-        height: 60px;
+        height: 4em;
         vertical-align: middle;
     }
-    .icon{
-        height: 40px;
+    /* .icon{
+        height: 4em;
         vertical-align: middle;
-    }
-    .icon:hover{
+    } */
+    /* .icon:hover{
         background-color: lightgray;
         border-radius: 5px;
-    }
-    .hidden{
+    } */
+    /* .hidden{
         display: none;
-    }
-    .highlight{
+    } */
+    /* .highlight{
         background-color: lightgray;
         border-radius: 5px;
-    }
+    } */
