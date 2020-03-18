@@ -18,13 +18,13 @@
     <script type="text/javascript" src="../js/FileSaver.js"></script>
 </head>
 
-<body id="body">
+<body>
     <div include-html="header.html"></div>
     <div>
-        <div class="content">
+        <div id="content" class="content">
             <h1 style="text-align: center;">Natoli Tolerator</h1>
             <div style="display: flex;">
-                    <form style="margin-left:auto;" autocomplete="off" onsubmit="SavePageAsPNG()" onreset="RefreshPage()">
+                    <form style="margin-left:auto;" autocomplete="off">
                         <div style="width: fit-content; margin-top:3.25em;">
                             <div class="select-grandparent">
                                 <div class="select-parent boxshadow">
@@ -479,9 +479,9 @@
                         </div>
                     </div>
             </div>
-            <div style="position: fixed; right:2.5em; bottom:3.75em; width:8.25em;">
-                <button class="button" style="margin-bottom:.625em; width: 100%; padding-left:0em; padding-right:0em;;" id="button" type="submit" >Save Page</button>
-                <button class="button" style="width: 100%; padding-left:0em; padding-right:0em;" type="reset" >Reset</button>
+            <div style="position: fixed; right:2.5em; bottom:5em; width:8.25em;">
+                <button class="button" style="margin-bottom:.625em; width: 100%; padding-left:0em; padding-right:0em;;" id="button" onclick="SavePageAsPNG()">Save Page</button>
+                <button class="button" style="width: 100%; padding-left:0em; padding-right:0em;" onclick="RefreshPage()" >Reset</button>
             </div>
         </div>
     </div>
@@ -503,7 +503,7 @@
     Brave blocks the download if shield is up
     */
     function SavePageAsPNG() {
-        var node = document.getElementById("body");
+        var node = document.getElementById("content");
         domtoimage.toPng(node, { bgcolor: "white" }).then(function (dataUrl) {
             var link = document.createElement("a");
             var width = document.getElementById("width").value;
