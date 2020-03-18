@@ -15,14 +15,17 @@
         height: 3.5rem;
         vertical-align: middle;
     }
-    /* .icon{
-        height: 4em;
-        vertical-align: middle;
-    } */
-    /* .icon:hover{
-        background-color: lightgray;
-        border-radius: 5px;
-    } */
+     .icon{
+        height: 2em;
+        margin-top: -.4em;
+        transition: 100ms;
+        padding: .125em;
+    }
+     .icon:hover{
+        background: rgb(225, 225, 225);
+        border-radius: .25em;
+        padding: .125em;
+    }
     /* .hidden{
         display: none;
     } */

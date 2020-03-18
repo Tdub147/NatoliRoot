@@ -12,19 +12,39 @@
         <script type="text/javascript" src="../js/index.js"></script>
     </head>
     <body>
-        <div class="nav">
+        <div id="header" class="nav">
             <img style="position: absolute; top:-0.3em; left:1em; cursor: pointer" id="logo" title="Natoli Engineering Applications" alt="Natoli Logo" src="../img/LandingPage_Logo.png" onclick="javascript: window.location.href = 'index.html';">
             <div style="position: absolute; top:.8em; right:1em; margin-left: auto; margin-right: 0em;">
-                <div>
+                <div id="textMenu">
                     <a style="margin-left: .5em;" href="working_length.html" title="Working Length Page">Working-Length</a>
                     <a style="margin-left: .5em;" href="tolerator.html" title="Tolerator Page">Tolerator</a>
+                    <a style="margin-left: .5em;" href="tip_force_calc_tsm_7th.html" title="Tip Force Calculator Page">Tip Force</a>
+                    <a style="margin-left: .5em;" href="carbide_tip_force.html" title="Carbide Tip Force Page">Carbide Tip Force</a>
+                    <a style="margin-left: .5em;" href="bending.html" title="Bending Page">Bending</a>
                     <a style="margin-left: .5em;" href="resources.html" title="Resources Page">Resources</a>
                     <a style="margin-left: .5em;" href="about.html" title="About Page">About</a>
                 </div>
+                <img id="burgerMenu" class="icon" src="../icons/969595-essentials/svg/016-detail-1.svg" alt="Menu Closed" onclick="openMenu()">
             </div>
-        <!-- <img id="menu-closed" class="icon" src="../icons/969595-essentials/svg/016-detail-1.svg" alt="Menu Closed" onclick="openMenu()"> -->
         </nav>
     </body>
     <script>
+        function MenuRedraw() {
+            var textMenu = document.getElementById("textMenu");
+            var burgerMenu = document.getElementById("burgerMenu");
+            if ($(this).width() < 820) {
+                textMenu.hidden = true;
+                burgerMenu.hidden = false;
+            } else {
+                burgerMenu.hidden = true;
+                textMenu.hidden = false;
+              }
+        }
+        $(document).ready(function(){
+            MenuRedraw();
+        });
+        $(window).resize(function() {
+            MenuRedraw();
+          });
     </script>
 </html>
