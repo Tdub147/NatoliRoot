@@ -1,14 +1,18 @@
 .nav{
-    height: 3em;
+    height: 3rem;
     background-color: transparent;
-    display: flex;
+    box-shadow: 0px .5em .5em rgba(0, 0, 0, 0.2);
+    border: solid gray .1em;
+    border-top:0em;
+    border-left:0em;
+    border-right:0em;
     }
     #menu-items{
         display: flex;
         height: inherit;
         }
     #logo{
-        height: 4em;
+        height: 3.5em;
         vertical-align: middle;
     }
     /* .icon{

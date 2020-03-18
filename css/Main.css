@@ -1,21 +1,27 @@
 * {
   box-sizing: border-box;
 }
-
-body{
-  height: 100%;
-  width: 95%;
-}
 html {
   font-family: "Varela Round" !important;
   max-width: 100%;
   background-color: #efefef !important;
   font-size: 1em;
 }
-
-.boxshadow {
-  box-shadow: 0 .5em 1em 0 rgba(0, 0, 0, 0.2), 0 .375em 1.25em 0 rgba(0, 0, 0, 0.19);
+body{
+  height: 100%;
+  margin: 0em;
+  overflow: hidden;
 }
+
+.content{
+  position: absolute;
+  overflow-y: auto;
+  top: 3rem;
+  bottom: 1.8rem;
+  left: .25em;
+  right: .25em;
+}
+
 a{
   color:black;
   text-decoration: none;
@@ -31,7 +37,6 @@ a:hover{
   border-bottom: solid rgba(0, 0, 50, .5);
   border-width: .0625em;
 }
-
 
 h1{
   cursor:default;
@@ -66,6 +71,11 @@ button:focus {
   border: .125em solid #007ea7;
   outline: none;
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+.boxshadow {
+  box-shadow: 0 .5em 1em 0 rgba(0, 0, 0, 0.2), 0 .375em 1.25em 0 rgba(0, 0, 0, 0.19);
 }
 
 .button {
@@ -184,6 +194,7 @@ button:focus {
   padding-right: 0;
   position: relative;
 }
+/* select's parent */
 .select-parent select {
   display: none; /*hide original SELECT element: */
 }
@@ -223,7 +234,6 @@ button:focus {
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
 }
-
 /* Style items (options): */
 .select-items {
   position: absolute;
@@ -244,7 +254,7 @@ button:focus {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: visible;
-  max-height: 700%;
+  max-height: 25vh;
 }
   /* width */
   .select-items::-webkit-scrollbar {

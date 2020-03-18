@@ -16,78 +16,80 @@
     </head>
     <body>
     <div include-html="header.html"></div>
-    <h1>Working Length Tolerance</h1>
+    <div class="content">
+        <h1>Working Length Tolerance</h1>
 
-    <div class="Checkboxes">
-        <select class="selectors" id="custom-selector" style="width: 6.25em;height: 1.5625em;border-radius: .3125em .3125em .3125em .3125em;margin: 0em .625em .625em 0em;outline: none;" onclick="selected()">
-            <option value="0">Standard</option>
-            <option value="1">Assembled</option>
-        </select>
-        <input type="checkbox" id="rotating" name="rotating" value="Rotating">
-        <label for="rotating">Rotating Head</label>
+        <div class="Checkboxes">
+            <select class="selectors" id="custom-selector" style="width: 6.25em;height: 1.5625em;border-radius: .3125em .3125em .3125em .3125em;margin: 0em .625em .625em 0em;outline: none;" onclick="selected()">
+                <option value="0">Standard</option>
+                <option value="1">Assembled</option>
+            </select>
+            <input type="checkbox" id="rotating" name="rotating" value="Rotating">
+            <label for="rotating">Rotating Head</label>
+
+            <div style="text-align: center;">
+                <div class="Inputs">
+                    <div class="col1">
+                        <input class="inputs" id="OLInput" placeholder="Overall Length (mm)" oninput="convert('OLInput', 'OLLabel')">
+                        <input class="inputs" id="WLInput" placeholder="Working Length (mm)" oninput="convert('WLInput', 'WLLabel')">
+                        <label class="labels" id="CDMetricLabel">Cup Depth (mm)</label>
+                    </div>
+
+                    <div class="col2">
+                        <label class="labels" id="OLLabel">Overall Length (in)</label>
+                        <label class="labels" id="WLLabel">Working Length (in)</label>
+                        <label class="labels" id="CDLabel">Cup Depth (in)</label>
+                    </div>
+
+                    <div class="col3">
+                        <input type="number" class="number_spinner" id="OLtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0000" onchange="do_math()">
+                        <input type="number" class="number_spinner" id="WLtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0254" onchange="do_math()">
+                        <input type="number" class="number_spinner" id="CDtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0381" onchange="do_math()">
+                    </div>
+
+                    <div class="col4">
+                        <label class="tol_label">+ OL Tolerance (mm) -</label>
+                        <label class="tol_label">+ WL Tolerance (mm) -</label>
+                        <label class="tol_label">+ CD Tolerance (mm) -</label>
+                    </div>
+
+                    <div class="col5">
+                        <input type="number" class="number_spinner" id="OLtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0000" onchange="do_math()">
+                        <input type="number" class="number_spinner" id="WLtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0254" onchange="do_math()">
+                        <input type="number" class="number_spinner" id="CDtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0381" onchange="do_math()">
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div style="text-align: center;">
-            <div class="Inputs">
-                <div class="col1">
-                    <input class="inputs" id="OLInput" placeholder="Overall Length (mm)" oninput="convert('OLInput', 'OLLabel')">
-                    <input class="inputs" id="WLInput" placeholder="Working Length (mm)" oninput="convert('WLInput', 'WLLabel')">
-                    <label class="labels" id="CDMetricLabel">Cup Depth (mm)</label>
-                </div>
-
-                <div class="col2">
-                    <label class="labels" id="OLLabel">Overall Length (in)</label>
-                    <label class="labels" id="WLLabel">Working Length (in)</label>
-                    <label class="labels" id="CDLabel">Cup Depth (in)</label>
-                </div>
-
-                <div class="col3">
-                    <input type="number" class="number_spinner" id="OLtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0000" onchange="do_math()">
-                    <input type="number" class="number_spinner" id="WLtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0254" onchange="do_math()">
-                    <input type="number" class="number_spinner" id="CDtoltop_input" min="0.0000" max="5.0000" step="0.0001" value="0.0381" onchange="do_math()">
-                </div>
-
-                <div class="col4">
-                    <label class="tol_label">+ OL Tolerance (mm) -</label>
-                    <label class="tol_label">+ WL Tolerance (mm) -</label>
-                    <label class="tol_label">+ CD Tolerance (mm) -</label>
-                </div>
-
-                <div class="col5">
-                    <input type="number" class="number_spinner" id="OLtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0000" onchange="do_math()">
-                    <input type="number" class="number_spinner" id="WLtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0254" onchange="do_math()">
-                    <input type="number" class="number_spinner" id="CDtolbot_input" min="0.0000" max="5.0000" step="0.0001" value="0.0381" onchange="do_math()">
-                </div>
+            <div style="display: inline-flex;padding: 1.25em .625em .625em 0em;">
+                <button class="button" onclick="do_math()">Calculate</button>
+                <button class="button" onclick="clear_values()">Refresh</button>
             </div>
         </div>
-    </div>
 
-    <div style="text-align: center;">
-        <div style="display: inline-flex;padding: 1.25em .625em .625em 0em;">
-            <button class="button" onclick="do_math()">Calculate</button>
-            <button class="button" onclick="clear_values()">Refresh</button>
-        </div>
-    </div>
-
-    <div style="text-align: center;">
-        <div class="colresults">
-        </div>
-    </div>
-
-    <div style="text-align: center;">
-        <div class="Results">
-            <div class="colresults0">
-                <label class="results" style="margin-right: .625em;">Overall Length Tolerance:</label>
-                <label class="results" id="OLResultLabel" style="margin-right: .625em;">Overall Length Tolerance:</label>
+        <div style="text-align: center;">
+            <div class="colresults">
             </div>
+        </div>
 
-            <div class="colresults1">
-                <label class="results" style="margin-right: .625em;">Working Length Tolerance:</label>
-                <label class="results" id="WLResultLabel" style="margin-right: .625em;">Working Length Tolerance:</label>
-            </div>
+        <div style="text-align: center;">
+            <div class="Results">
+                <div class="colresults0">
+                    <label class="results" style="margin-right: .625em;">Overall Length Tolerance:</label>
+                    <label class="results" id="OLResultLabel" style="margin-right: .625em;">Overall Length Tolerance:</label>
+                </div>
 
-            <div class="colresults2">
-                <label class="results">Cup Depth Tolerance:</label>
-                <label class="results" id="CDResultLabel">Cup Depth Tolerance:</label>
+                <div class="colresults1">
+                    <label class="results" style="margin-right: .625em;">Working Length Tolerance:</label>
+                    <label class="results" id="WLResultLabel" style="margin-right: .625em;">Working Length Tolerance:</label>
+                </div>
+
+                <div class="colresults2">
+                    <label class="results">Cup Depth Tolerance:</label>
+                    <label class="results" id="CDResultLabel">Cup Depth Tolerance:</label>
+                </div>
             </div>
         </div>
     </div>

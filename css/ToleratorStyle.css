@@ -8,65 +8,6 @@
     padding-right: .2em;
     padding-left: .2em;
   }
-[class*="size"] {
-    padding-top: .1em;
-    padding-bottom: .1em;
-  }
-.size1of8{
-    width: 12.5%;
-}
-.size1of4{
-    width: 25%
-}
-.size2of8{
-    width: 25%;
-}
-.size1of3{
-    width: 33.33333%;
-}
-.size3o8{
-    width: 37.5%;
-}
-.size1of2{
-    width: 50%;
-}
-.size2of4{
-    width: 50%;
-}
-.size4of8{
-    width: 50%;
-}
-.size5of8{
-    width: 62.5%;
-}
-.size2of3{
-    width: 66.66667%;
-}
-.size3of4{
-    width: 75%;
-}
-.size6of8{
-    width: 75%;
-}
-.size7of8{
-    width: 87.5%;
-}
-.size1of1{
-    width: 100%;
-}
-.size2of2{
-    width: 100%;
-}
-.size3of3{
-    width: 100%;
-}
-.size4of4{
-    width: 100%;
-}
-.size8of8{
-    width: 100%;
-}
-
 
 span.frac {
     display: inline-block;
