@@ -1,6 +1,18 @@
+/**
+ * Occurs when document is ready
+ */
 $(document).ready(function () {
     includeHTML();
 })
+$(document).ready(function () {
+    
+})
+/**
+ * Occurs on window resizing
+ */
+$(window).resize(function() {
+    MenuRedraw();
+  });
 
 function openMenu(){
     //$("#menu-drop").slideDown(300);
@@ -96,7 +108,6 @@ function styleDropDowns() {
     }
 }
 
-
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
@@ -122,5 +133,50 @@ function includeHTML() {
       /* Exit the function: */
       return;
     }
-  }
+    }
+    MenuRedraw();
+    $(document.getElementById("dropMenu")).fadeOut(0);
+}
+/**
+ * Header - hides drop menu
+ */
+function hideMenu(){
+    var dropMenu = document.getElementById("dropMenu");
+    $(dropMenu).fadeOut(100);
+}
+/**
+ * Header - shows drop menu
+ */
+function showMenu(){
+    var dropMenu = document.getElementById("dropMenu");
+    $(dropMenu).fadeIn(100);
+}
+/**
+ * Header - toggles drop menu and hamburger icon
+ */
+function menuClick(){
+    var dropMenu = document.getElementById("dropMenu");
+    var burgerMenu = document.getElementById("burgerMenu");
+    $(dropMenu).fadeToggle(100);
+    var opacity = dropMenu.style.opacity;
+    if(opacity<.5){
+        burgerMenu.attributes.getNamedItem('src').value="../icons/969595-essentials/svg/031-cancel.svg";
+    }
+    else{
+        burgerMenu.attributes.getNamedItem('src').value="../icons/969595-essentials/svg/019-menu-1.svg";
+    }
+}
+/**
+ * Header - chooses whether to have text or burgermenu
+ */
+function MenuRedraw() {
+    var textMenu = document.getElementById("textMenu");
+    var burgerMenu = document.getElementById("burgerMenu");
+    if ($(this).width() < 820) {
+        textMenu.hidden = true;
+        burgerMenu.hidden = false;
+    } else {
+        burgerMenu.hidden = true;
+        textMenu.hidden = false;
+      }
 }

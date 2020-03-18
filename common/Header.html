@@ -14,7 +14,7 @@
     <body>
         <div id="header" class="nav">
             <img style="position: absolute; top:-0.3em; left:1em; cursor: pointer" id="logo" title="Natoli Engineering Applications" alt="Natoli Logo" src="../img/LandingPage_Logo.png" onclick="javascript: window.location.href = 'index.html';">
-            <div style="position: absolute; top:.8em; right:1em; margin-left: auto; margin-right: 0em;">
+            <div class="right">
                 <div id="textMenu">
                     <a style="margin-left: .5em;" href="working_length.html" title="Working Length Page">Working-Length</a>
                     <a style="margin-left: .5em;" href="tolerator.html" title="Tolerator Page">Tolerator</a>
@@ -24,27 +24,23 @@
                     <a style="margin-left: .5em;" href="resources.html" title="Resources Page">Resources</a>
                     <a style="margin-left: .5em;" href="about.html" title="About Page">About</a>
                 </div>
-                <img id="burgerMenu" class="icon" src="../icons/969595-essentials/svg/016-detail-1.svg" alt="Menu Closed" onclick="openMenu()">
+                <img id="burgerMenu" class="icon" src="../icons/969595-essentials/svg/019-menu-1.svg" alt="Menu Closed" onclick="menuClick()">
             </div>
-        </nav>
+            <div class="right" id="dropMenu">
+                <a class="menu-items" style="border-top: 0em;" href="working_length.html" title="Working Length Page">Working-Length</a>
+                <div class="seperator"></div>
+                <a class="menu-items" href="tolerator.html" title="Tolerator Page">Tolerator</a>
+                <div class="seperator"></div>
+                <a class="menu-items" href="tip_force_calc_tsm_7th.html" title="Tip Force Calculator Page">Tip Force</a>
+                <div class="seperator"></div>
+                <a class="menu-items" href="carbide_tip_force.html" title="Carbide Tip Force Page">Carbide Tip Force</a>
+                <div class="seperator"></div>
+                <a class="menu-items" href="bending.html" title="Bending Page">Bending</a>
+                <div class="seperator"></div>
+                <a class="menu-items" href="resources.html" title="Resources Page">Resources</a>
+                <div class="seperator"></div>
+                <a class="menu-items" href="about.html" title="About Page">About</a>
+            </div>
+        </div>
     </body>
-    <script>
-        function MenuRedraw() {
-            var textMenu = document.getElementById("textMenu");
-            var burgerMenu = document.getElementById("burgerMenu");
-            if ($(this).width() < 820) {
-                textMenu.hidden = true;
-                burgerMenu.hidden = false;
-            } else {
-                burgerMenu.hidden = true;
-                textMenu.hidden = false;
-              }
-        }
-        $(document).ready(function(){
-            MenuRedraw();
-        });
-        $(window).resize(function() {
-            MenuRedraw();
-          });
-    </script>
 </html>

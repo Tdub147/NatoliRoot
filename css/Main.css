@@ -31,12 +31,12 @@ a{
   border-bottom: solid transparent;
   border-width: .0625rem;
   vertical-align: middle;
-  transition: 75ms;
 }
 a:hover{
   color: #00a7e1;
   border-bottom: solid rgba(0, 0, 50, .5);
   border-width: .0625rem;
+  transition: 75ms;
 }
 
 h1{
