@@ -6,6 +6,7 @@ html {
   max-width: 100%;
   background-color: #efefef !important;
   font-size: 1em;
+  -webkit-print-color-adjust: exact;
 }
 body{
   height: 100%;
