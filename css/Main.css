@@ -16,8 +16,8 @@ body{
 .content{
   position: absolute;
   overflow-y: auto;
-  top: 3rem;
-  bottom: 1.8rem;
+  top: 3rem; /* * Make sure that the this matches the header height. */
+  bottom: 1.8rem; /* * Make sure that the this matches the footer height. */
   left: .25em;
   right: .25em;
 }

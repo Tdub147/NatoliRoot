@@ -4,7 +4,7 @@
     width: 100%;
     bottom: 0em;
     left: 0em;
-    height: 1.8rem;/* Footer height */
+    height: 1.8rem; /* * Make sure that the content class uses the same bottom poisition. */
     background-color:#efefef;
     box-shadow: 0px -.5em .5em rgba(0, 0, 0, 0.2);
     border: solid gray .1em;
