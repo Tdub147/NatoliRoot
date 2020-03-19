@@ -4,20 +4,78 @@
     <head>
         <meta charset="UTF-8">
         <title>Working Length</title>
-        <meta name="Description" content="Working Length"/>
+        <meta name="Description" content="Bending Stress"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="../js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
         <script type="text/javascript" src="../js/index.js"></script>
+        <script type="text/javascript" src="../js/bending.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/Main.css">
         <link rel="stylesheet" href="../fonts/Valera-Round.css">
+        <link rel="stylesheet" type="text/css" href="../css/bending.css">
         <link rel="shortcut icon" href="./img/LandingPage_Logo.png">
-        <script type="text/javascript" src="../js/WorkingLength.js"></script>
     </head>
     <body>
     <div include-html="header.html"></div>
     <div class="content">
         <h1 style="text-align: center;">Bending Stress</h1>
+        <div class="box">
+            <div class="column">
+                <div class="row">
+                    <input type="text" id="outerDiameter" placeholder="Min Dia. (in.)">
+                </div>
+                <div class="row">
+                    <input type="text" id="tipStraight" placeholder="Tip Str. (in.)">
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="coreRod" onchange="toggleCoreRodInput(); inputChanged();" >
+                    <label for="coreRod">Core Rod</label>
+                </div>
+                <div class="row">
+                    <input type="text" id="innerDiameter" placeholder="Max C.R. Bore (in.)">
+                </div>
+            </div>
+            <div class="column">
+                <div class="row">
+                    Modulus of Elasticity (E): <span id="modE">30000000</span> (psi)
+                </div>
+                <div class="row">
+                    Yield Strength in Compression (Syc): <span id="syc">275000</span> (psi)
+                </div>
+                <div class="row">
+                    <div class="select-grandparent">
+                        <div class="select-parent boxshadow">
+                            <select class="select" id="steelSelection">
+                                <option>ESR S7 STEEL</option>
+                                <option>M340 STEEL</option>
+                                <option>D2 STEEL</option>
+                            </select>
+                            <div class="select-selected" onclick="SelectorClick(this,event); inputChanged();">
+                            </div>
+                            <div class="select-items select-hide" style="border-bottom-left-radius: 1.25em; border-bottom-right-radius: 1.25em;">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                <div class="row">
+                    Max Tip Force (Pc): <span id="pc">N/A</span> (kN)
+                </div>
+            </div>
+        </div>
     </div>
     <div include-html="footer.html"></div>
 </body>
+<script type="text/javascript" id="documentReadyScript">
+    var inputText = document.getElementById("innerDiameter");
+    $(inputText).fadeToggle(0);
+    document.addEventListener("click", closeAllSelect);
+    styleDropDowns();
+    function SelectorClick(element, e){
+        e.preventDefault();
+        e.stopPropagation();
+        closeAllSelect(element);
+    }
+</script>
 </html>

@@ -51,6 +51,9 @@
         margin-right: .5rem;
         margin-top: .125rem;
         border:none;
+        text-overflow: clip;
+        overflow: hidden;
+        white-space: nowrap;
     }
     .menu-items:hover{
         color: #efefef;

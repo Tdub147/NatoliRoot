@@ -1,0 +1,35 @@
+div{
+    cursor:default;
+}
+.row{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.column{
+    margin-right:1em;
+    margin-left:1em;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.box{
+    display: flex;
+    width:fit-content;
+    background-color:#BFBFBF;
+    margin-left: auto;
+    margin-right:auto;
+    padding: .625em;
+    border-radius: .3125em;
+    box-shadow: 0 .5em 1em 0 rgba(0,0,0,0.2), 0 .375em 1.25em 0 rgba(0,0,0,0.19);
+}
+
+span{
+    color: #007ea7;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 40.9em) {
+    .box {
+        display: block;
+        width: auto;
+    }
+}

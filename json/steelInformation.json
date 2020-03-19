@@ -1,0 +1,12 @@
+{
+    "ESR S7 STEEL":{
+        "Modulus of Elasticity":{
+            "value":30000000,
+            "units":"psi"
+        },
+        "Yield Strength in Compression":{
+            "value":275000,
+            "units":"psi"
+        }
+    }
+}

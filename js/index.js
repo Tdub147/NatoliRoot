@@ -3,9 +3,12 @@
  */
 $(document).ready(function () {
     includeHTML();
-})
-$(document).ready(function () {
-    
+    document.body.addEventListener('click', function (evt) {
+        var element = evt.target;
+        if (element.id != document.getElementById("burgerMenu").id && dropMenu.offsetWidth > 1) {
+            hideMenu();
+        }
+    });
 })
 /**
  * Occurs on window resizing
@@ -14,11 +17,6 @@ $(window).resize(function() {
     MenuRedraw();
   });
 
-function openMenu(){
-    //$("#menu-drop").slideDown(300);
-    //$("#menu-drop").slideUp(300);
-    document.getElementById("menu-closed").classList.toggle("highlight");
-}
 
 /**
  * Refreshes the page.
@@ -38,6 +36,9 @@ function closeAllSelect(elmnt) {
     var x, y, i, otherParents, parent;
     x = document.getElementsByClassName("select-items");
     y = document.getElementsByClassName("select-selected");
+    if (elmnt.tagName == undefined) {
+        elmnt = elmnt.target;
+    }
     if (
         elmnt != undefined &&
         elmnt.tagName == "DIV" &&
@@ -77,7 +78,7 @@ function styleDropDowns() {
         // Set a to have the text of the selected item.
         a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
         var offset = 1;
-        if (selElmnt.id.startsWith("pm")) {
+        if (selElmnt.id.startsWith("pm") || selElmnt.id.startsWith("steelSelection")) {
             offset = 0;
         }
         for (j = offset; j < selElmnt.length; j++) {
@@ -135,35 +136,43 @@ function includeHTML() {
     }
     }
     MenuRedraw();
-    $(document.getElementById("dropMenu")).fadeOut(0);
+    $(dropMenu).animate({
+        width:"toggle"
+    },0);
 }
 /**
  * Header - hides drop menu
  */
 function hideMenu(){
     var dropMenu = document.getElementById("dropMenu");
-    $(dropMenu).fadeOut(100);
+    var burgerMenu = document.getElementById("burgerMenu");
+    burgerMenu.attributes.getNamedItem('src').value = "../icons/969595-essentials/svg/019-menu-1.svg";
+    $(dropMenu).animate({
+        width:"toggle"
+    });
 }
 /**
  * Header - shows drop menu
  */
 function showMenu(){
     var dropMenu = document.getElementById("dropMenu");
-    $(dropMenu).fadeIn(100);
+    var burgerMenu = document.getElementById("burgerMenu");
+    burgerMenu.attributes.getNamedItem('src').value = "../icons/969595-essentials/svg/031-cancel.svg";
+    $(dropMenu).animate({
+        width:"toggle"
+    });
 }
 /**
  * Header - toggles drop menu and hamburger icon
  */
-function menuClick(){
+function menuClick() {
     var dropMenu = document.getElementById("dropMenu");
-    var burgerMenu = document.getElementById("burgerMenu");
-    $(dropMenu).fadeToggle(100);
-    var opacity = dropMenu.style.opacity;
-    if(opacity<.5){
-        burgerMenu.attributes.getNamedItem('src').value="../icons/969595-essentials/svg/031-cancel.svg";
+    var width = dropMenu.offsetWidth;
+    if(width<1){
+        showMenu();
     }
     else{
-        burgerMenu.attributes.getNamedItem('src').value="../icons/969595-essentials/svg/019-menu-1.svg";
+        hideMenu();
     }
 }
 /**
