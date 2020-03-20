@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Natoli Engineering Applications</title>
+        <meta name="Description" content="Home Page"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/Main.css">
+        <link rel="stylesheet" href="../fonts/Valera-Round.css">
+        <link rel="shortcut icon" href="../img/LandingPage_Logo.png">
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        var steelInformation;
+        var twoDArray=[['Steel', 'Density']];
+        var myJsonString;
+        const request = async () => {
+            const response = await fetch('../json/steelInformation.json');
+            steelInformation = await response.json();
+            console.log(steelInformation);
+            var keys = Object.keys(steelInformation);
+            for(let i = 0; i<keys.length;i++){
+                var key = keys[i];
+                var point = key.substring(0,key.length-6);
+                twoDArray.push([point,steelInformation[key]["Density"]["value"]]);
+            }
+            //google.charts.load('current', {'packages':['corechart']});
+            google.charts.load('current', {'packages':['scatter']});
+            google.charts.setOnLoadCallback(drawChart);
+        }
+        request();
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(twoDArray);
+
+            var options = {
+                title: 'Steel vs. Density comparison',
+                hAxis: {title: 'Steel'},
+                vAxis: {title: 'Density (kg/mm³)', minValue:7000, baseline:1,baselineColor:"black"},
+                legend: 'none',
+                pointShape:'diamond'
+            };
+
+            //var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+            //chart.draw(data, options);
+            var chart = new google.charts.Scatter(document.getElementById('chart_div'));
+            chart.draw(data, google.charts.Scatter.convertOptions(options));
+        }
+        </script>
+    </head>
+    <body >
+        <div include-html="header.html"></div>
+        <div class="content">
+            <div id="chart_div" style="width: 100%; height: 500px;"></div>
+        </div>
+        <div include-html="footer.html"></div>
+    </body>
+</html>
+
+
