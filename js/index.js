@@ -108,6 +108,18 @@ function styleDropDowns() {
         }
     }
 }
+/**
+ * Rounds a number to a certain number of places
+ * @param {number} number
+ * @param {number} places
+ */
+function Round(number, places) {
+    console.log({ Round: { number: number, places: places } });
+    final = Math.round(number * Math.pow(10, places)) / Math.pow(10, places);
+    console.log({ return: final });
+    return final;
+  }
+
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;

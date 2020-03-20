@@ -1,12 +1,226 @@
 {
+    "408 STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":302500,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7750,
+            "units":"kg/mm^3"
+        }
+    },
+    "4140 STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":60191,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7850,
+            "units":"kg/mm^3"
+        }
+    },
+    "440C STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":220000,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7667,
+            "units":"kg/mm^3"
+        }
+    },
+    "A2 STEEL":{
+        "Modulus of Elasticity":{
+            "value":30022812,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":261250,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7720,
+            "units":"kg/mm^3"
+        }
+    },
+    "D2 STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":220000,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7695,
+            "units":"kg/mm^3"
+        }
+    },
+    "DC53 STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":231000,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7723,
+            "units":"kg/mm^3"
+        }
+    },
     "ESR S7 STEEL":{
         "Modulus of Elasticity":{
             "value":30000000,
             "units":"psi"
         },
-        "Yield Strength in Compression":{
-            "value":275000,
+        "Yield Strength":{
+            "value":274800,
             "units":"psi"
+        },
+        "Density":{
+            "value":7830,
+            "units":"kg/mm^3"
+        }
+    },
+    "H13 STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":220000,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7750,
+            "units":"kg/mm^3"
+        }
+    },
+    "K340 STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":231000,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7667,
+            "units":"kg/mm^3"
+        }
+    },
+    "M2 STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":253000,
+            "units":"psi"
+        },
+        "Density":{
+            "value":8138,
+            "units":"kg/mm^3"
+        }
+    },
+    "M340 STEEL":{
+        "Modulus of Elasticity":{
+            "value":29007548,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":245575,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7695,
+            "units":"kg/mm^3"
+        }
+    },
+    "PM 10V STEEL":{
+        "Modulus of Elasticity":{
+            "value":32053340,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":220000,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7418,
+            "units":"kg/mm^3"
+        }
+    },
+    "PM 15V STEEL":{
+        "Modulus of Elasticity":{
+            "value":34083868,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":209000,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7250,
+            "units":"kg/mm^3"
+        }
+    },
+    "PM 3V STEEL":{
+        "Modulus of Elasticity":{
+            "value":30022812,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":261250,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7800,
+            "units":"kg/mm^3"
+        }
+    },
+    "PM M4 STEEL":{
+        "Modulus of Elasticity":{
+            "value":31038076,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":261250,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7970,
+            "units":"kg/mm^3"
+        }
+    },
+    "S1 STEEL":{
+        "Modulus of Elasticity":{
+            "value":30022812,
+            "units":"psi"
+        },
+        "Yield Strength":{
+            "value":274800,
+            "units":"psi"
+        },
+        "Density":{
+            "value":7889,
+            "units":"kg/mm^3"
         }
     }
 }

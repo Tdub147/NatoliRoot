@@ -271,13 +271,6 @@ function NatoliCalculate() {
     }
   }
 }
-// Rounds a number to a certain number of places
-function Round(number, places) {
-  console.log({ Round: { number: number, places: places } });
-  final = Math.round(number * Math.pow(10, places)) / Math.pow(10, places);
-  console.log({ return: final });
-  return final;
-}
 // Returns formatted Size and Tolerance
 function GetToleranceAsHTML(
   isShaft,
