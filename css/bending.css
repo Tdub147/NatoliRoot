@@ -23,8 +23,11 @@ div{
 }
 
 span{
-    color: #007ea7;
-    text-decoration: underline;
+    color: rgb(41, 73, 114);
+    background-color: rgb(171,171,171);
+    padding: 0 0.25em 0 0.25em;
+    border-radius: 0.25em;
+    /* text-decoration: underline; */
 }
 
 @media screen and (max-width: 40.9em) {
