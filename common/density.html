@@ -27,8 +27,8 @@
                 var point = key.substring(0,key.length-6);
                 twoDArray.push([point,steelInformation[key]["Density"]["value"]]);
             }
-            //google.charts.load('current', {'packages':['corechart']});
-            google.charts.load('current', {'packages':['scatter']});
+            google.charts.load('current', {'packages':['corechart']});
+            //google.charts.load('current', {'packages':['scatter']});
             google.charts.setOnLoadCallback(drawChart);
         }
         request();
@@ -39,25 +39,32 @@
             var options = {
                 title: 'Steel vs. Density comparison',
                 hAxis: {title: 'Steel'},
-                vAxis: {title: 'Density (kg/mm³)', minValue:7000, baseline:1,baselineColor:"black"},
+                vAxis: {title: 'Density (kg/mm³)', minValue:7000, baseline:7000,baselineColor:"black"},
                 legend: 'none',
                 pointShape:'diamond'
             };
 
-            //var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-            //chart.draw(data, options);
-            var chart = new google.charts.Scatter(document.getElementById('chart_div'));
-            chart.draw(data, google.charts.Scatter.convertOptions(options));
+            var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+            //var chart = new google.charts.Scatter(document.getElementById('chart_div'));
+            //chart.draw(data, google.charts.Scatter.convertOptions(options));
         }
         </script>
     </head>
     <body >
         <div include-html="header.html"></div>
         <div class="content">
-            <div id="chart_div" style="width: 100%; height: 500px;"></div>
+            <div style="display:flex;justify-content:center;align-items:center; height:100%; width:100%">
+                <div id="chart_div" style="width: 100%; height: 90%;"></div>
+            </div>
         </div>
         <div include-html="footer.html"></div>
     </body>
+    <script>
+        //$(window).resize(function() {
+        //    google.charts.setOnLoadCallback(drawChart);
+        //  });
+    </script>
 </html>
 
 
