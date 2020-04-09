@@ -1,0 +1,67 @@
+{
+    "entered_by":"Tyler Williams",
+    "date":"04/09/2020",
+    "reference": "Tableting Specification Manual Seventh Edition, American Pharmacists Association",
+    "page": "89",
+    "table": "19",
+    "units":"in, lb/in²",
+    "cup_depth":{
+        ".007":{
+            "allowable_pressure": 67200
+        },
+        ".008":{
+            "allowable_pressure": 62600
+        },
+        ".009":{
+            "allowable_pressure": 58800
+        },
+        ".010":{
+            "allowable_pressure": 55600
+        },
+        ".011":{
+            "allowable_pressure": 52800
+        },
+        ".012":{
+            "allowable_pressure": 50400
+        },
+        ".013":{
+            "allowable_pressure": 48300
+        },
+        ".014":{
+            "allowable_pressure": 46500
+        },
+        ".015":{
+            "allowable_pressure": 44800
+        },
+        ".016":{
+            "allowable_pressure": 43300
+        },
+        ".017":{
+            "allowable_pressure": 41900
+        },
+        ".018":{
+            "allowable_pressure": 40600
+        },
+        ".019":{
+            "allowable_pressure": 39500
+        },
+        ".020":{
+            "allowable_pressure": 38400
+        },
+        ".021":{
+            "allowable_pressure": 37400
+        },
+        ".022":{
+            "allowable_pressure": 36500
+        },
+        ".023":{
+            "allowable_pressure": 35700
+        },
+        ".024":{
+            "allowable_pressure": 34900
+        },
+        ".025":{
+            "allowable_pressure": 34100
+        }
+    }
+}
